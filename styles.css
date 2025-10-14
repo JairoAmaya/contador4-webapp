@@ -14,7 +14,7 @@ body {
 
 /* Contenedor principal */
 .app-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
@@ -55,7 +55,7 @@ body {
   color: #6b7280;
 }
 
-/* Contenido principal */
+/* Main Content */
 .main-content {
   background: white;
   border-radius: 12px;
@@ -63,124 +63,175 @@ body {
   padding: 30px;
 }
 
-.section-title h2 {
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #1f2937;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-/* Categorías */
-.categories-container {
+/* Search Bar */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.frequency-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.filter-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+/* Results Info */
+.results-info {
+  padding: 10px 15px;
+  background: #f9fafb;
+  border-left: 4px solid #2563eb;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Prompts Container */
+.prompts-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-bottom: 30px;
 }
 
-.category-card {
+/* Prompt Card */
+.prompt-card {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.category-card:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.prompt-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #2563eb;
 }
 
-.category-header {
-  background: #f9fafb;
+.prompt-card-header {
   padding: 20px;
+  background: #f9fafb;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   transition: background-color 0.3s ease;
 }
 
-.category-header:hover {
+.prompt-card-header:hover {
   background: #f3f4f6;
 }
 
-.category-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.prompt-card-title {
+  flex: 1;
 }
 
-.category-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-
-.category-badge.blue { background-color: #3b82f6; }
-.category-badge.green { background-color: #10b981; }
-.category-badge.purple { background-color: #8b5cf6; }
-.category-badge.cyan { background-color: #06b6d4; }
-.category-badge.red { background-color: #ef4444; }
-.category-badge.orange { background-color: #f97316; }
-.category-badge.indigo { background-color: #6366f1; }
-
-.category-info h3 {
-  font-size: 1.2rem;
+.prompt-card-title h3 {
+  font-size: 1.1rem;
   font-weight: 600;
   color: #1f2937;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
-.category-info p {
-  font-size: 0.9rem;
-  color: #6b7280;
+.prompt-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.category-toggle {
-  font-size: 1.2rem;
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-frequency {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-when {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.expand-icon {
+  font-size: 1rem;
   color: #9ca3af;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease;
+  margin-left: 15px;
 }
 
-.category-toggle.active {
-  transform: rotate(90deg);
+.expand-icon.expanded {
+  transform: rotate(180deg);
   color: #2563eb;
 }
 
-/* Contenido de categoría */
-.category-content {
+/* Prompt Card Content */
+.prompt-card-content {
   padding: 20px;
   background: white;
-  border-top: 1px solid #e5e7eb;
-}
-
-/* Prompts */
-.prompt-item {
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  overflow: hidden;
-}
-
-.prompt-header {
-  padding: 15px;
-  background: white;
-  cursor: pointer;
-  font-weight: 600;
-  color: #1f2937;
-  transition: color 0.3s ease;
-}
-
-.prompt-header:hover {
-  color: #2563eb;
-}
-
-.prompt-content {
-  padding: 15px;
-  background: #f9fafb;
   border-top: 1px solid #e5e7eb;
 }
 
@@ -188,10 +239,29 @@ body {
   font-size: 0.95rem;
   color: #374151;
   white-space: pre-wrap;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  max-height: 400px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-height: 500px;
   overflow-y: auto;
+  padding-right: 10px;
+}
+
+.prompt-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.prompt-text::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.prompt-text::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.prompt-text::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .copy-button {
@@ -208,15 +278,43 @@ body {
 
 .copy-button:hover {
   background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .copy-button.copied {
   background: #10b981;
 }
 
-/* Sección de tips */
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.no-results p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.reset-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Tips Section */
 .tips-section {
   background: #f9fafb;
   border: 2px solid #e5e7eb;
@@ -250,6 +348,7 @@ body {
   left: 0;
   font-weight: bold;
   color: #2563eb;
+  font-size: 1.2rem;
 }
 
 .tips-section a {
@@ -280,4 +379,26 @@ body {
   .main-content {
     padding: 20px;
   }
+
+  .frequency-filters {
+    justify-content: center;
+  }
+
+  .prompt-card-header {
+    flex-direction: column;
+  }
+
+  .expand-icon {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
+```
+
+---
+
+## 📄 **3. Guardar tu JSON**
+
+Guarda el archivo `prompts_data_complete.json` que compartiste en:
+```
+src/data/prompts_data_complete.json
