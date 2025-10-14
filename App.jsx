@@ -1,33 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import './styles.css'
-import promptsData from './data/prompts.json'
+import promptsData from './data/prompts_data_complete.json'
 
 export default function App() {
-  const [activeCategory, setActiveCategory] = useState(null)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedFrequency, setSelectedFrequency] = useState('all')
   const [expandedPrompts, setExpandedPrompts] = useState({})
   const [copiedPrompts, setCopiedPrompts] = useState({})
 
-  const toggleCategory = (categoryId) => {
-    setActiveCategory(activeCategory === categoryId ? null : categoryId)
-  }
+  // Extraer frecuencias únicas
+  const frequencies = useMemo(() => {
+    const freqs = [...new Set(promptsData.map(p => p.frecuencia))]
+    return ['all', ...freqs]
+  }, [])
 
-  const togglePrompt = (promptId) => {
+  // Filtrar prompts
+  const filteredPrompts = useMemo(() => {
+    return promptsData.filter(prompt => {
+      const matchesSearch = prompt.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           prompt.contenido.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesFrequency = selectedFrequency === 'all' || prompt.frecuencia === selectedFrequency
+      return matchesSearch && matchesFrequency
+    })
+  }, [searchTerm, selectedFrequency])
+
+  const togglePrompt = (index) => {
     setExpandedPrompts(prev => ({
       ...prev,
-      [promptId]: !prev[promptId]
+      [index]: !prev[index]
     }))
   }
 
-  const copyPrompt = (content, promptId) => {
+  const copyPrompt = (content, index) => {
     navigator.clipboard.writeText(content)
-    setCopiedPrompts(prev => ({ ...prev, [promptId]: true }))
+    setCopiedPrompts(prev => ({ ...prev, [index]: true }))
     setTimeout(() => {
-      setCopiedPrompts(prev => ({ ...prev, [promptId]: false }))
+      setCopiedPrompts(prev => ({ ...prev, [index]: false }))
     }, 2000)
   }
 
   return (
     <div className="app-container">
+      {/* Header */}
       <header className="header">
         <div className="header-icon">📊</div>
         <div className="header-text">
@@ -36,69 +50,106 @@ export default function App() {
         </div>
       </header>
 
+      {/* Main Content */}
       <main className="main-content">
-        <div className="section-title">
-          <h2>Biblioteca de Prompts ({promptsData.reduce((acc, cat) => acc + cat.prompts.length, 0)} prompts)</h2>
+        <div className="section-header">
+          <h2>Biblioteca de Prompts ({promptsData.length} prompts profesionales)</h2>
+          
+          {/* Search Bar */}
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="🔍 Buscar prompts..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
+            />
+          </div>
+
+          {/* Frequency Filter */}
+          <div className="filter-section">
+            <label className="filter-label">Filtrar por frecuencia:</label>
+            <div className="frequency-filters">
+              {frequencies.map(freq => (
+                <button
+                  key={freq}
+                  className={`filter-btn ${selectedFrequency === freq ? 'active' : ''}`}
+                  onClick={() => setSelectedFrequency(freq)}
+                >
+                  {freq === 'all' ? 'Todos' : freq}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="categories-container">
-          {promptsData.map(category => (
-            <div key={category.id} className="category-card">
+        {/* Results Count */}
+        <div className="results-info">
+          Mostrando {filteredPrompts.length} de {promptsData.length} prompts
+        </div>
+
+        {/* Prompts List */}
+        <div className="prompts-container">
+          {filteredPrompts.map((prompt, index) => (
+            <div key={index} className="prompt-card">
               <div 
-                className="category-header"
-                onClick={() => toggleCategory(category.id)}
+                className="prompt-card-header"
+                onClick={() => togglePrompt(index)}
               >
-                <div className="category-left">
-                  <div className={`category-badge ${category.color}`}>📊</div>
-                  <div className="category-info">
-                    <h3>{category.title}</h3>
-                    <p>{category.prompts.length} prompts disponibles</p>
+                <div className="prompt-card-title">
+                  <h3>{prompt.nombre}</h3>
+                  <div className="prompt-metadata">
+                    <span className="badge badge-frequency">{prompt.frecuencia}</span>
+                    <span className="badge badge-when">📅 {prompt.cuando}</span>
                   </div>
                 </div>
-                <div className={`category-toggle ${activeCategory === category.id ? 'active' : ''}`}>
-                  ▶
+                <div className={`expand-icon ${expandedPrompts[index] ? 'expanded' : ''}`}>
+                  ▼
                 </div>
               </div>
 
-              {activeCategory === category.id && (
-                <div className="category-content">
-                  {category.prompts.map(prompt => (
-                    <div key={prompt.id} className="prompt-item">
-                      <div 
-                        className="prompt-header"
-                        onClick={() => togglePrompt(prompt.id)}
-                      >
-                        {prompt.title}
-                      </div>
-                      
-                      {expandedPrompts[prompt.id] && (
-                        <div className="prompt-content">
-                          <div className="prompt-text">
-                            {prompt.content}
-                          </div>
-                          <button 
-                            className={`copy-button ${copiedPrompts[prompt.id] ? 'copied' : ''}`}
-                            onClick={() => copyPrompt(prompt.content, prompt.id)}
-                          >
-                            {copiedPrompts[prompt.id] ? '✓ Copiado' : '📋 Copiar'}
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+              {expandedPrompts[index] && (
+                <div className="prompt-card-content">
+                  <div className="prompt-text">
+                    {prompt.contenido}
+                  </div>
+                  <button
+                    className={`copy-button ${copiedPrompts[index] ? 'copied' : ''}`}
+                    onClick={() => copyPrompt(prompt.contenido, index)}
+                  >
+                    {copiedPrompts[index] ? '✓ Copiado' : '📋 Copiar prompt'}
+                  </button>
                 </div>
               )}
             </div>
           ))}
         </div>
 
+        {/* No Results */}
+        {filteredPrompts.length === 0 && (
+          <div className="no-results">
+            <p>No se encontraron prompts que coincidan con tu búsqueda.</p>
+            <button 
+              className="reset-btn"
+              onClick={() => {
+                setSearchTerm('')
+                setSelectedFrequency('all')
+              }}
+            >
+              Limpiar filtros
+            </button>
+          </div>
+        )}
+
+        {/* Tips Section */}
         <div className="tips-section">
           <h3>💡 Consejos para usar los prompts</h3>
           <ul>
-            <li>Cambia la información entre <strong>[corchetes]</strong> por datos específicos</li>
-            <li>Usa <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> para análisis complejos</li>
-            <li>Combina múltiples prompts según tus necesidades</li>
-            <li>Revisa siempre los resultados antes de presentarlos</li>
+            <li>Usa la información de <strong>"Cuándo usar"</strong> para saber el contexto ideal</li>
+            <li>La <strong>frecuencia</strong> te indica qué tan seguido deberías aplicar el prompt</li>
+            <li>Personaliza el contenido según las necesidades específicas de tu cliente</li>
+            <li>Usa <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> para análisis más profundos</li>
+            <li>Combina múltiples prompts para casos complejos</li>
           </ul>
         </div>
       </main>
