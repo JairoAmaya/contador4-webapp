@@ -1,1 +1,14 @@
-
+[
+  {
+    "id": "analisis",
+    "title": "Análisis Financiero",
+    "color": "blue",
+    "prompts": [
+      {
+        "id": "af1",
+        "title": "Análisis Integral de Estados Financieros",
+        "content": "Actúa como un analista financiero senior. Analiza los estados financieros adjuntos (balance general, estado de resultados y estado de cambios en el patrimonio) de los últimos 3 años.\n\nESTRUCTURA TU ANÁLISIS EN:\n1. Identifica las 5 tendencias más significativas\n2. Evalúa la salud financiera general de la empresa\n3. Proporciona 3 recomendaciones estratégicas basadas en tu análisis\n4. Incluye comparaciones año a año\n5. Explica el impacto de cada hallazgo en la posición competitiva"
+      }
+    ]
+  }
+]
