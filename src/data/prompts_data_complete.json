@@ -16,8 +16,7 @@
     "cuando": "Due diligence o auditoría interna",
     "frecuencia": "Anual",
     "contenido": "Examina estos estados financieros buscando inconsistencias, irregularidades o señales de alerta. Analiza la coherencia entre las diferentes partidas, identifica variaciones inusuales period-over-period, y evalúa la calidad de los earnings. Proporciona un informe de due diligence destacando cualquier área que requiera investigación adicional o aclaración por parte de la gerencia."
-  }
-,
+  },
   {
     "nombre": "Análisis de Sostenibilidad",
     "cuando": "Planificación financiera estratégica",
@@ -31,9 +30,603 @@
     "contenido": "Examina los componentes del flujo de efectivo operativo, particularmente los cambios en capital de trabajo. Identifica oportunidades de optimización en cuentas por cobrar, inventarios y cuentas por pagar. Calcula el ciclo de conversión de efectivo y proporciona 5 estrategias específicas para mejorar la generación de efectivo operativo sin comprometer las operaciones."
   },
   {
+    "nombre": "Evaluación de Capacidad de Inversión",
+    "cuando": "Previo a decisiones de expansión",
+    "frecuencia": "Según necesidad",
+    "contenido": "Analiza la capacidad de la empresa para financiar proyectos de crecimiento basándote en su flujo de efectivo histórico y proyectado. Evalúa el equilibrio entre flujo operativo, necesidades de capex, servicio de deuda y distribuciones a accionistas. Determina el monto óptimo disponible para nuevas inversiones y recomienda una estructura de financiamiento para proyectos estratégicos."
+  },
+  {
+    "nombre": "Análisis de Contribución Marginal",
+    "cuando": "Evaluación de rentabilidad por segmento",
+    "frecuencia": "Mensual",
+    "contenido": "Analiza la rentabilidad de cada línea de negocio calculando márgenes brutos, contribución marginal y EBITDA por segmento. Identifica qué líneas están subsidiando a otras, evalúa la asignación de costos fijos, y determina el punto de equilibrio para cada unidad de negocio. Proporciona recomendaciones sobre qué líneas expandir, mantener o descontinuar."
+  },
+  {
+    "nombre": "Análisis de Valor Económico Agregado (EVA)",
+    "cuando": "Medición de creación de valor real",
+    "frecuencia": "Trimestral",
+    "contenido": "Calcula el EVA para cada línea de negocio, considerando el costo de capital específico y los activos empleados. Identifica qué segmentos están creando o destruyendo valor, analiza los drivers de rentabilidad únicos de cada línea, y propone estrategias para maximizar el valor económico total de la empresa."
+  },
+  {
+    "nombre": "Optimización de Portfolio de Negocios",
+    "cuando": "Revisión estratégica anual",
+    "frecuencia": "Anual",
+    "contenido": "Usando la matriz BCG y análisis de rentabilidad, evalúa el portfolio de líneas de negocio. Clasifica cada segmento según su posición competitiva y atractivo del mercado, analiza la sinergia entre líneas, y desarrolla una estrategia de asignación de recursos que maximice el retorno sobre el capital invertido a nivel corporativo."
+  },
+  {
+    "nombre": "Dashboard de Ratios Clave",
+    "cuando": "Reporte ejecutivo mensual",
+    "frecuencia": "Mensual",
+    "contenido": "Crea un dashboard ejecutivo con los 15 ratios financieros más críticos organizados en 5 categorías: liquidez, eficiencia, apalancamiento, rentabilidad y mercado. Para cada ratio, proporciona el valor actual, tendencia de 3 años, benchmark del sector, y semáforo de alerta (verde/amarillo/rojo). Incluye interpretación ejecutiva y acciones recomendadas para ratios en zona de riesgo."
+  },
+  {
+    "nombre": "Análisis Predictivo con Ratios",
+    "cuando": "Evaluación de riesgo financiero futuro",
+    "frecuencia": "Semestral",
+    "contenido": "Utiliza los ratios financieros históricos para desarrollar un modelo predictivo de la salud financiera futura. Identifica los ratios más correlacionados con el desempeño operativo, calcula z-scores de Altman y Piotroski F-Score, y proporciona una probabilidad de stress financiero en los próximos 12-24 meses. Incluye escenarios de sensibilidad."
+  },
+  {
+    "nombre": "Benchmarking Sectorial de Ratios",
+    "cuando": "Comparación con competencia del sector",
+    "frecuencia": "Semestral",
+    "contenido": "Compara los ratios financieros de la empresa contra el percentil 25, mediana y percentil 75 de su sector industrial. Identifica en qué métricas la empresa sobresale o queda rezagada, analiza las causas estructurales de las diferencias, y establece targets realistas de mejora para alcanzar el cuartil superior en 3 años."
+  },
+  {
+    "nombre": "Mapa de Riesgos Integral",
+    "cuando": "Planificación de gestión de riesgos",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla un mapa comprensivo de riesgos financieros evaluando: riesgo de liquidez, riesgo crediticio, riesgo de mercado, riesgo operacional y riesgo de concentración. Para cada categoría, identifica los 3 riesgos principales, evalúa probabilidad e impacto, y propone controles preventivos y planes de contingencia. Incluye métricas de early warning para cada tipo de riesgo."
+  },
+  {
+    "nombre": "Stress Testing Financiero",
+    "cuando": "Preparación para escenarios adversos",
+    "frecuencia": "Anual",
+    "contenido": "Diseña y ejecuta stress tests bajo 3 escenarios: recesión moderada, crisis sectorial y shock de tasas de interés. Evalúa el impacto en liquidez, solvencia y rentabilidad, identifica puntos de quiebre críticos, y determina las acciones de contingencia necesarias. Calcula el capital de reserva requerido para mantener operaciones bajo cada escenario adverso."
+  },
+  {
+    "nombre": "Sistema de Alertas Tempranas",
+    "cuando": "Monitoreo continuo de riesgos",
+    "frecuencia": "Mensual",
+    "contenido": "Establece un sistema de alertas tempranas basado en indicadores financieros y operativos. Define umbrales críticos para ratios clave, identifica combinaciones de métricas que históricamente preceden problemas financieros, y crea un scoring de riesgo automatizado. Proporciona un protocolo de escalamiento y acciones correctivas para cada nivel de alerta del sistema."
+  },
+  {
     "nombre": "Comunicación de Cambios o Ajustes",
     "cuando": "Ajuste de tarifas o políticas",
     "frecuencia": "Según necesidad",
-    "contenido": "Redacta una carta profesional dirigida a nuestros clientes corporativos explicando [cambio específico: aumento de tarifas/modificación de servicios/nueva política]. La carta debe: mantener un tono empático y transparente, explicar las razones comerciales detrás de la decisión, destacar el valor agregado que continuamos proporcionando, incluir una línea de tiempo clara de implementación, y ofrecer un canal directo para consultas."
+    "contenido": "Redacta una carta profesional dirigida a nuestros clientes corporativos explicando [cambio específico: aumento de tarifas/modificación de servicios/nueva política]. La carta debe: mantener un tono empático y transparente, explicar las razones comerciales detrás de la decisión, destacar el valor agregado que continuamos proporcionando, incluir una línea de tiempo clara de implementación, y ofrecer un canal directo para consultas. Asegúrate de que el mensaje refuerce la relación a largo plazo y mitigue cualquier preocupación potencial."
+  },
+  {
+    "nombre": "Explicación de Resultados o Performance",
+    "cuando": "Cierre de proyecto o período",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora una comunicación personalizada para explicar a nuestro cliente [nombre] los resultados del proyecto/servicio realizado en el último período. La carta debe incluir: un resumen ejecutivo de los logros clave, métricas de desempeño comparadas con objetivos iniciales, explicación de cualquier desviación o reto enfrentado, impacto tangible en su negocio, próximos pasos recomendados, y una invitación para una reunión de seguimiento. El tono debe ser profesional pero cercano, demostrando nuestro compromiso con su éxito."
+  },
+  {
+    "nombre": "Comunicación de Crisis o Incidentes",
+    "cuando": "Situación de crisis que afecta clientes",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una carta de comunicación de crisis para informar a los clientes afectados sobre [incidente específico]. La comunicación debe seguir el protocolo: reconocimiento inmediato del problema, explicación clara de qué ocurrió y por qué, detalle de las acciones correctivas ya implementadas, medidas preventivas para evitar recurrencia, compensación o remediación ofrecida, y cronograma de seguimiento. El mensaje debe transmitir responsabilidad, transparencia y confianza en nuestra capacidad de resolución."
+  },
+  {
+    "nombre": "Dashboard Ejecutivo Mensual",
+    "cuando": "Reporte mensual para ejecutivos",
+    "frecuencia": "Mensual",
+    "contenido": "Crea un reporte ejecutivo mensual personalizado para [nombre del ejecutivo/área] que incluya: resumen de 3 puntos clave del mes, dashboard visual con 5 KPIs críticos para su rol, análisis de tendencias vs. período anterior, identificación de 2-3 oportunidades inmediatas, alertas sobre riesgos emergentes, y recomendaciones accionables para los próximos 30 días. El formato debe ser conciso (máximo 2 páginas), visualmente atractivo, y enfocado en decisiones estratégicas que el ejecutivo debe tomar."
+  },
+  {
+    "nombre": "Reporte de Performance por Área",
+    "cuando": "Evaluación trimestral de áreas",
+    "frecuencia": "Trimestral",
+    "contenido": "Diseña un reporte ejecutivo trimestral personalizado para el Director de [área específica] que analice: performance vs. objetivos establecidos, comparación con benchmarks del sector, análisis de causas raíz de desviaciones, impacto en otros departamentos y la organización general, iniciativas en curso y su progreso, recomendaciones estratégicas para el siguiente trimestre. Incluye gráficos de tendencias, semáforos de alerta, y un plan de acción priorizado."
+  },
+  {
+    "nombre": "Reporte Estratégico de Junta Directiva",
+    "cuando": "Reunión de junta directiva",
+    "frecuencia": "Trimestral",
+    "contenido": "Elabora un reporte ejecutivo para la Junta Directiva que cubra: estado general del negocio con métricas financieras clave, avance en objetivos estratégicos anuales, análisis de mercado y posición competitiva, principales riesgos y oportunidades identificados, decisiones críticas que requieren aprobación de la junta, y outlook para los próximos 6 meses. El documento debe ser de nivel estratégico, incluir resumen ejecutivo de una página, y estar preparado para generar discusión y toma de decisiones en el board."
+  },
+  {
+    "nombre": "Presentación de Resultados Financieros",
+    "cuando": "Cierre trimestral financiero",
+    "frecuencia": "Trimestral",
+    "contenido": "Desarrolla una presentación de resultados financieros trimestrales con la siguiente estructura: slide de apertura con highlights principales, análisis de P&L con comparativos vs. presupuesto y año anterior, evolución del balance y flujo de caja, análisis por línea de negocio o región, factores que impactaron la performance, outlook y guidance para próximos períodos, Q&A anticipado con posibles preguntas. La presentación debe tener un storytelling claro, visualizaciones impactantes, y mensajes clave que refuercen la narrativa estratégica."
+  },
+  {
+    "nombre": "Presentación de Resultados de Proyecto",
+    "cuando": "Finalización de proyecto importante",
+    "frecuencia": "Según necesidad",
+    "contenido": "Crea una presentación ejecutiva para comunicar los resultados del proyecto [nombre] incluyendo: contexto y objetivos originales del proyecto, metodología utilizada y timeline ejecutado, resultados cuantitativos y cualitativos obtenidos, comparación con metas establecidas, lecciones aprendidas y mejores prácticas identificadas, impacto en la organización y próximos pasos, recomendaciones para proyectos futuros. El formato debe ser dinámico, con casos de éxito destacados y métricas visuales convincentes."
+  },
+  {
+    "nombre": "Presentación de Resultados de Investigación de Mercado",
+    "cuando": "Finalización de estudio de mercado",
+    "frecuencia": "Según necesidad",
+    "contenido": "Diseña una presentación de resultados de investigación de mercado que incluya: resumen ejecutivo con insights clave, metodología y muestra del estudio, hallazgos principales organizados por temas relevantes, análisis de implicaciones para la estrategia de negocio, recomendaciones accionables priorizadas por impacto, análisis competitivo y posicionamiento, plan de implementación sugerido. La presentación debe transformar datos en insights estratégicos y conclusiones que guíen decisiones de negocio."
+  },
+  {
+    "nombre": "Informe Ejecutivo de Auditoría Interna",
+    "cuando": "Finalización de auditoría interna",
+    "frecuencia": "Según plan de auditoría",
+    "contenido": "Redacta un informe ejecutivo de auditoría interna dirigido al Comité de Auditoría que incluya: resumen de alcance y objetivos de la auditoría realizada, clasificación de hallazgos por nivel de riesgo (crítico/alto/medio/bajo), descripción detallada de cada observación con evidencia de respaldo, impacto potencial en controles internos y operaciones, recomendaciones específicas con responsables y fechas de implementación, respuesta de la gerencia a cada hallazgo, y plan de seguimiento. El tono debe ser objetivo, constructivo y enfocado en agregar valor a la organización."
+  },
+  {
+    "nombre": "Comunicación de Hallazgos Críticos",
+    "cuando": "Hallazgo crítico en auditoría",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una comunicación urgente para el CEO y CFO sobre hallazgos críticos de auditoría que incluya: identificación clara del riesgo o problema detectado, evidencia concreta y cuantificación del impacto potencial, análisis de causas raíz y controles que fallaron, acciones correctivas inmediatas requeridas, plan de remediación a corto y mediano plazo, recursos necesarios para implementar soluciones, y cronograma de seguimiento. El mensaje debe ser directo, crear sentido de urgencia apropiado, y facilitar la toma de decisiones ejecutiva inmediata."
+  },
+  {
+    "nombre": "Reporte de Auditoría para Reguladores",
+    "cuando": "Requerimiento regulatorio",
+    "frecuencia": "Anual o según normativa",
+    "contenido": "Elabora un reporte de auditoría formal para presentar a organismos reguladores que cumpla con [normativa específica] que incluya: carta de representación de la gerencia, descripción del marco de control interno evaluado, detalle de procedimientos de auditoría ejecutados, hallazgos organizados por área de control, evaluación de la efectividad de controles existentes, deficiencias materiales identificadas y su impacto, plan de acción correctiva con fechas compromiso, y certificación de independencia del equipo auditor. El documento debe cumplir estándares profesionales y regulatorios aplicables."
+  },
+  {
+    "nombre": "Comunicación de Cambios en Legislación Fiscal",
+    "cuando": "Nueva reforma o legislación fiscal",
+    "frecuencia": "Según necesidad",
+    "contenido": "Redacta un memorando ejecutivo explicando el impacto de [nueva legislación/reforma fiscal] en nuestra organización, dirigido al equipo directivo. Incluye: resumen de los cambios normativos más relevantes, análisis cuantitativo del impacto en nuestra carga fiscal anual, identificación de oportunidades de planificación fiscal emergentes, riesgos de cumplimiento y nuevas obligaciones, acciones requeridas con fechas límite, recomendaciones estratégicas para optimizar la posición fiscal, y cronograma de implementación. El mensaje debe traducir complejidad legal en implicaciones comerciales claras."
+  },
+  {
+    "nombre": "Explicación de Estrategia de Optimización Fiscal",
+    "cuando": "Presentación al comité de finanzas",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla una presentación para el Comité de Finanzas explicando nuestra estrategia de optimización fiscal que incluya: análisis de la carga fiscal actual por jurisdicción y tipo de impuesto, identificación de oportunidades de eficiencia fiscal legal, evaluación de riesgo-beneficio de cada estrategia propuesta, impacto financiero proyectado de las iniciativas, requerimientos de implementación y recursos necesarios, consideraciones de riesgo reputacional y cumplimiento, y plan de monitoreo continuo. La presentación debe equilibrar oportunidades de ahorro con gestión prudente de riesgos."
+  },
+  {
+    "nombre": "Comunicación de Contingencias Fiscales",
+    "cuando": "Identificación de contingencia fiscal",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora una comunicación al CFO y equipo legal sobre contingencias fiscales identificadas que incluya: descripción detallada de cada contingencia y su origen, evaluación de probabilidad de materialización y exposición financiera, análisis de precedentes legales y posiciones de autoridades fiscales, estrategias de defensa disponibles y recomendaciones del asesor externo, provisiones contables sugeridas según normativa aplicable, cronograma de procesos administrativos o judiciales, y plan de comunicación con auditores externos y stakeholders. El reporte debe facilitar la toma de decisiones informada sobre gestión de riesgo fiscal."
+  },
+  {
+    "nombre": "Propuesta Integral de Servicios Contables",
+    "cuando": "Prospección de nuevo cliente",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una propuesta comercial completa para ofrecer servicios contables integrales a [tipo de empresa/sector]. La propuesta debe incluir: análisis de las necesidades contables específicas del cliente, descripción detallada de servicios (contabilidad general, nómina, impuestos, reportes financieros), metodología de trabajo y cronograma de entregas, equipo asignado con perfiles profesionales, diferenciadores competitivos y valor agregado único, estructura de costos transparente con opciones de pago, garantías de calidad y SLAs, casos de éxito similares, y próximos pasos del proceso. El tono debe ser profesional, consultivo y enfocado en generar confianza."
+  },
+  {
+    "nombre": "Propuesta de Migración y Modernización Contable",
+    "cuando": "Cliente con sistemas obsoletos",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora una propuesta especializada para la modernización del sistema contable de un cliente que actualmente maneja procesos manuales o sistemas obsoletos. Incluye: diagnóstico del estado actual y gaps identificados, propuesta de implementación de software contable moderno, plan de migración de datos históricos, capacitación del equipo interno del cliente, procesos optimizados y controles internos mejorados, cronograma de implementación por fases, análisis costo-beneficio de la modernización, soporte post-implementación, y métricas de éxito esperadas. Enfócate en el ROI y la eficiencia operativa."
+  },
+  {
+    "nombre": "Propuesta de Outsourcing Contable Completo",
+    "cuando": "Cliente busca externalizar función contable",
+    "frecuencia": "Según necesidad",
+    "contenido": "Diseña una propuesta de outsourcing contable total para una empresa que busca externalizar completamente su función contable. La propuesta debe cubrir: análisis de la situación actual y costos internos, propuesta de servicios externalizados (desde transaccional hasta estratégico), modelo de transición suave desde equipo interno, estructura de governance y comunicación, tecnología y herramientas que utilizaremos, equipo dedicado y estructura de respaldo, comparativo de costos internos vs. outsourcing, beneficios de escalabilidad y expertise especializado, y plan de implementación gradual. Destaca la liberación de recursos para actividades core del negocio."
+  },
+  {
+    "nombre": "Cotización de Paquetes Diferenciados",
+    "cuando": "Cliente solicita cotización",
+    "frecuencia": "Según necesidad",
+    "contenido": "Crea una cotización estructurada en 3 paquetes de servicios (Básico, Profesional, Premium) para servicios contables, dirigida a [tipo de cliente]. Cada paquete debe incluir: descripción clara de servicios incluidos, frecuencia de entregas y reportes, nivel de soporte y atención, herramientas y tecnología incluida, precio mensual/anual con descuentos por anualidad, tabla comparativa visual de características, opciones de add-ons disponibles, términos de contrato y condiciones de pago. Incluye recomendación del paquete más adecuado según el perfil del cliente y justificación del valor de cada tier."
+  },
+  {
+    "nombre": "Cotización Modular por Servicios",
+    "cuando": "Cliente busca servicios específicos",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una cotización modular que permita al cliente seleccionar servicios específicos según sus necesidades. Incluye módulos como: contabilidad básica, nómina, impuestos, auditoría, consultoría fiscal, reportes ejecutivos, análisis financiero, cada uno con descripción detallada, precio unitario, prerequisitos o dependencias entre módulos, descuentos por combinación de servicios, opciones de escalabilidad según crecimiento del cliente, comparativo de costos vs. contratar servicios por separado, y configurador de propuesta personalizada. Facilita que el cliente pueda armar su paquete ideal."
+  },
+  {
+    "nombre": "Cotización por Industria Específica",
+    "cuando": "Cliente de sector especializado",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora cotizaciones especializadas para [industria específica: retail, manufactura, servicios, etc.] que incluyan: servicios estándar adaptados a regulaciones del sector, servicios especializados únicos de la industria, compliance con normativas específicas, reportes regulatorios requeridos, análisis de KPIs sectoriales, benchmarking contra empresas similares, paquetes de diferentes tamaños de empresa (startup, mediana, grande), estructura de precios competitiva para el sector, casos de éxito en empresas similares, y propuesta de valor específica para los retos de esa industria."
+  },
+  {
+    "nombre": "Presentación de Servicios Estratégicos",
+    "cuando": "Upselling a clientes existentes",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una presentación de servicios de valor agregado que vaya más allá de la contabilidad tradicional, incluyendo: consultoría en planeación fiscal estratégica, análisis predictivo y business intelligence, automatización de procesos contables, consultoría en estructura corporativa, due diligence para adquisiciones, modelado financiero para proyectos, implementación de controles internos, capacitación ejecutiva en finanzas. Para cada servicio incluye: beneficios tangibles, casos de uso típicos, metodología diferenciada, ROI esperado para el cliente, y ejemplos de resultados obtenidos. Posiciona estos servicios como catalizadores de crecimiento empresarial."
+  },
+  {
+    "nombre": "Presentación de Servicios de Transformación Digital",
+    "cuando": "Cliente busca digitalización",
+    "frecuencia": "Según necesidad",
+    "contenido": "Crea una presentación enfocada en servicios de transformación digital contable que incluya: diagnóstico de madurez digital actual, implementación de ERP y software especializado, automatización de procesos repetitivos (AP, AR, conciliaciones), dashboards en tiempo real y business intelligence, integración con sistemas existentes, capacitación en herramientas digitales, soporte en change management, medición de ROI de la transformación. Destaca cómo estos servicios posicionan al cliente como líder digital en su industria y mejoran la toma de decisiones."
+  },
+  {
+    "nombre": "Presentación de Servicios de Risk Management",
+    "cuando": "Cliente con altos riesgos financieros",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora una presentación de servicios especializados en gestión de riesgos financieros que cubra: evaluación integral de riesgos corporativos, diseño de marcos de control interno, implementación de sistemas de alertas tempranas, stress testing y análisis de escenarios, compliance con regulaciones cambiantes, auditoría interna y externa especializada, planes de contingencia financiera, capacitación en gestión de riesgos. Cada servicio debe mostrar cómo protege y crea valor para la organización, con métricas específicas de reducción de riesgo y casos donde hayamos evitado pérdidas significativas para clientes."
+  },
+  {
+    "nombre": "Justificación Basada en Valor Entregado",
+    "cuando": "Negociación de honorarios",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una justificación detallada de honorarios basada en el valor que entregamos al cliente, incluyendo: análisis cuantitativo del ROI generado por nuestros servicios, ahorros de costos identificados y capturados, eficiencias operativas implementadas, riesgos mitigados y su valor económico, benchmarking de honorarios vs. mercado y calidad de servicio, comparativo de costos de tener equipo interno vs. outsourcing, valor de expertise especializado y actualización continua, disponibilidad 24/7 y respaldo de equipo completo. Incluye casos específicos donde nuestro trabajo generó valor medible y cuantificable para otros clientes similares."
+  },
+  {
+    "nombre": "Justificación por Complejidad y Especialización",
+    "cuando": "Caso de alta complejidad técnica",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora una justificación de honorarios enfocada en la complejidad del caso y nivel de especialización requerido, detallando: análisis de la complejidad técnica específica del cliente, regulaciones especiales o normativas complejas aplicables, nivel de expertise requerido y certificaciones del equipo, tiempo de investigación y actualización normativa continua, riesgo profesional asumido y seguros de responsabilidad, inversión en tecnología y herramientas especializadas, comparativo con tarifas de firmas de similar especialización, escasez de profesionales con el expertise requerido en el mercado."
+  },
+  {
+    "nombre": "Justificación de Incremento de Honorarios",
+    "cuando": "Ajuste de tarifas a cliente existente",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla una comunicación para justificar un incremento en honorarios a cliente existente que incluya: evolución del alcance y complejidad de servicios vs. contrato original, incrementos en regulaciones y requerimientos de compliance, inversiones realizadas en tecnología y capacitación para mejor servicio, inflación y aumentos en costos operativos del mercado, benchmarking actualizado vs. competencia, valor agregado adicional entregado sin costo extra, propuesta de estructura de honorarios escalonada o con incentivos, opciones para optimizar costos manteniendo calidad, y cronograma de implementación gradual del ajuste."
+  },
+  {
+    "nombre": "Contrato Integral de Servicios Contables",
+    "cuando": "Formalización de servicios con cliente",
+    "frecuencia": "Según necesidad",
+    "contenido": "Redacta un contrato comprehensivo de servicios contables profesionales que incluya: definición precisa del alcance de servicios y deliverables, responsabilidades de cada parte claramente establecidas, cronograma de entregas y fechas de reporte, estructura de honorarios y términos de pago, cláusulas de confidencialidad y protección de datos, estándares de calidad y SLAs comprometidos, procedimiento de resolución de disputas, términos de terminación y transición, seguros de responsabilidad profesional, cumplimiento normativo y regulatorio, cláusulas de modificación del contrato, y governance del proyecto. El contrato debe proteger ambas partes y facilitar una relación profesional exitosa."
+  },
+  {
+    "nombre": "Contrato de Consultoría Especializada",
+    "cuando": "Proyecto de consultoría especializada",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla un contrato específico para servicios de consultoría contable especializada que contemple: definición detallada del proyecto y objetivos esperados, metodología de trabajo y fases de implementación, equipo consultor asignado y calificaciones, propiedad intelectual de metodologías y resultados, criterios de éxito y métricas de evaluación, estructura de honorarios (fija, variable, success fee), confidencialidad de información estratégica del cliente, limitación de responsabilidad apropiada, garantías de calidad y remedios por incumplimiento, exclusividad o no-compete según aplicable, y términos de extensión o proyectos adicionales."
+  },
+  {
+    "nombre": "Contrato de Retainer Mensual",
+    "cuando": "Servicios contables recurrentes",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora un contrato de retainer mensual para servicios contables continuos que establezca: paquete base de servicios incluidos en el retainer, servicios adicionales y su facturación, disponibilidad garantizada del equipo (horas mensuales), prioridad de atención y tiempos de respuesta, rollover de horas no utilizadas o política de uso, ajustes anuales de retainer por inflación o cambios de alcance, términos de aviso para modificaciones o cancelación, facturación y términos de pago del retainer, reportes mensuales de servicios prestados, revisión trimestral de adecuación del retainer, y beneficios adicionales por relación de largo plazo. El contrato debe incentivar la retención del cliente y asegurar flujo de caja predecible."
+  },
+  {
+    "nombre": "Framework Integral de KPIs por Nivel Organizacional",
+    "cuando": "Diseño de sistema de medición",
+    "frecuencia": "Anual",
+    "contenido": "Diseña un sistema completo de KPIs financieros estructurado en 3 niveles: estratégico (C-level), táctico (gerencias medias) y operativo (supervisión). Para cada nivel define: 5-7 KPIs principales con sus fórmulas específicas, frecuencia de medición y reporte, umbrales de alerta (verde/amarillo/rojo), benchmarks del sector cuando aplique, interrelación entre KPIs de diferentes niveles, dashboard visual correspondiente, y responsable de cada métrica. Incluye KPIs de rentabilidad, liquidez, eficiencia, crecimiento y riesgo. El framework debe permitir cascadeo desde objetivos estratégicos hasta métricas operativas diarias."
+  },
+  {
+    "nombre": "KPIs Predictivos y de Early Warning",
+    "cuando": "Sistema de alertas tempranas",
+    "frecuencia": "Mensual",
+    "contenido": "Desarrolla un conjunto de KPIs financieros predictivos que funcionen como sistema de alerta temprana, incluyendo: indicadores adelantados de problemas de liquidez, métricas que predigan deterioro en márgenes, ratios que anticipen dificultades de cobranza, KPIs que alerten sobre desviaciones presupuestarias significativas, indicadores de calidad de earnings, métricas de sostenibilidad del modelo de negocio. Para cada KPI define: algoritmo de cálculo, fuentes de datos requeridas, periodicidad óptima de monitoreo, umbrales críticos de alerta, acciones automáticas a disparar, y correlación con otros indicadores para validación cruzada."
+  },
+  {
+    "nombre": "KPIs de Value Creation por Línea de Negocio",
+    "cuando": "Medición de creación de valor",
+    "frecuencia": "Trimestral",
+    "contenido": "Crea un sistema de KPIs enfocado en medición de creación de valor por unidad de negocio que incluya: ROI ajustado por riesgo para cada línea, EVA (Economic Value Added) por segmento, ratios de eficiencia de capital empleado, métricas de contribución marginal y punto de equilibrio, KPIs de cross-selling y up-selling, indicadores de satisfacción y retención por segmento, métricas de market share y posicionamiento competitivo. Establece metodología de benchmarking interno y externo, sistema de weightings para KPI compuesto de performance, y recomendaciones de asignación de recursos basada en KPIs de value creation."
+  },
+  {
+    "nombre": "Sistema de Reportes Automáticos Multi-periodicidad",
+    "cuando": "Automatización de reportes",
+    "frecuencia": "Una vez implementado",
+    "contenido": "Diseña una arquitectura de reportes automatizados que genere: reportes diarios de cash flow y posición financiera, reportes semanales de performance vs. budget, reportes mensuales de P&L completo y análisis de variaciones, reportes trimestrales de tendencias y análisis predictivo, reportes anuales de cierre con comparativos históricos. Para cada reporte especifica: fuentes de datos automáticas, algoritmos de consolidación, validaciones de calidad de datos, formato de presentación, lista de distribución automática, triggers para reportes especiales por excepción, y proceso de escalamiento para anomalías detectadas."
+  },
+  {
+    "nombre": "Reportes Inteligentes con Análisis Automático",
+    "cuando": "Implementación de BI avanzado",
+    "frecuencia": "Una vez implementado",
+    "contenido": "Desarrolla reportes automatizados que incluyan análisis inteligente de datos financieros: identificación automática de tendencias significativas, detección de outliers y anomalías, análisis automático de causas raíz de variaciones, generación de insights y recomendaciones, comparación automática con períodos similares y benchmarks, scoring automático de performance, alertas proactivas sobre métricas críticas. Incluye motor de narrativa automática que explique los números en lenguaje ejecutivo, sistema de priorización de issues por impacto, y recomendaciones accionables generadas por algoritmos."
+  },
+  {
+    "nombre": "Reportes Automatizados de Consolidación Multi-entidad",
+    "cuando": "Grupo empresarial con múltiples entidades",
+    "frecuencia": "Mensual",
+    "contenido": "Crea sistema de reportes automáticos para organizaciones con múltiples entidades que incluya: consolidación automática de estados financieros, eliminación de transacciones intercompañía, conversión de monedas automática, reportes por entidad y consolidado, análisis de contribución por subsidiaria, reportes de compliance por jurisdicción, reconciliación automática entre entidades, reportes de transfer pricing, análisis de synergies y duplicidades. Define proceso de validación cruzada entre entidades, manejo de diferentes calendarios fiscales, y reportes especiales para matriz/holding y reguladores."
+  },
+  {
+    "nombre": "Dashboard Ejecutivo Integral en Tiempo Real",
+    "cuando": "Monitoreo ejecutivo continuo",
+    "frecuencia": "Actualización continua",
+    "contenido": "Diseña un dashboard ejecutivo integral que muestre en una sola pantalla: performance financiera actual vs. objetivos con gráficos de tendencia, top 5 KPIs críticos con semáforos de alerta, cash flow proyectado a 13 semanas, análisis de rentabilidad por línea de negocio, principales riesgos identificados y su evolución, opportunities pipeline y su valor potencial, métricas de eficiencia operativa clave, comparativos vs. competencia donde disponible. El dashboard debe ser interactivo, permitir drill-down a detalle, actualizarse automáticamente, ser responsive para móviles, y incluir funcionalidad de exportación y compartición."
+  },
+  {
+    "nombre": "Dashboard de Performance vs. Budget Dinámico",
+    "cuando": "Gestión presupuestaria activa",
+    "frecuencia": "Actualización continua",
+    "contenido": "Desarrolla un dashboard interactivo enfocado en análisis presupuestario que incluya: vista de performance actual vs. budget con % de cumplimiento, análisis de variaciones por categoría (volumen, precio, mix, eficiencia), forecast actualizado vs. budget original, análisis de sensibilidad con escenarios, waterfall charts mostrando evolución mes a mes, heatmap de performance por departamento/región, identificación automática de principales drivers de desviación, proyección de cierre de año basada en tendencias actuales. Incluye capacidad de simulación de escenarios y herramientas de forecasting colaborativo."
+  },
+  {
+    "nombre": "Dashboard de Risk Management Ejecutivo",
+    "cuando": "Monitoreo de riesgos financieros",
+    "frecuencia": "Actualización continua",
+    "contenido": "Crea un dashboard especializado en visualización de riesgos financieros para nivel ejecutivo que muestre: mapa de calor de riesgos por probabilidad e impacto, métricas de exposición por tipo de riesgo (crédito, mercado, operacional, liquidez), tendencias en scoring de riesgo y early warnings, stress test results bajo diferentes escenarios, concentración de riesgos por cliente/proveedor/región, efectividad de controles implementados, costo de capital ajustado por riesgo, análisis de correlación entre diferentes riesgos. Dashboard debe incluir simulador de impacto y herramientas de what-if analysis para estrategias de mitigación."
+  },
+  {
+    "nombre": "Sistema de Análisis de Variaciones Multi-dimensional",
+    "cuando": "Análisis de desviaciones presupuestarias",
+    "frecuencia": "Mensual",
+    "contenido": "Desarrolla un sistema comprensivo de análisis de desviaciones presupuestarias que descomponga variaciones en: variación por volumen (cantidad vendida vs. presupuestada), variación por precio (precio real vs. presupuestado), variación por mix (cambio en composición de productos/servicios), variación por eficiencia (costos unitarios real vs. presupuesto), variación por timing (diferencias temporales), variación por FX (impacto cambiario), variaciones extraordinarias/one-time. Para cada tipo de variación incluye: metodología de cálculo, asignación de responsabilidad por área, impacto en forecast, acciones correctivas recomendadas, y análisis de tendencias históricas."
+  },
+  {
+    "nombre": "Análisis Predictivo de Desviaciones",
+    "cuando": "Prevención de desviaciones futuras",
+    "frecuencia": "Mensual",
+    "contenido": "Crea un sistema de análisis predictivo que identifique desviaciones presupuestarias antes de que ocurran, incluyendo: modelos predictivos basados en indicadores adelantados, análisis de correlación entre variables operativas y financieras, identificación de patrones estacionales y cíclicos, early warning system para desviaciones significativas, análisis de sensibilidad ante cambios en variables clave, simulación de escenarios probable/optimista/pesimista, recomendaciones automáticas de acciones preventivas. Sistema debe generar alertas proactivas con suficiente tiempo para acciones correctivas y facilitar reforecasting dinámico."
+  },
+  {
+    "nombre": "Framework de Accountability en Desviaciones",
+    "cuando": "Establecimiento de responsabilidades",
+    "frecuencia": "Anual",
+    "contenido": "Diseña un framework integral de responsabilidad por desviaciones presupuestarias que establezca: matriz de responsabilidad por tipo de desviación y área organizacional, umbrales de tolerancia por nivel jerárquico y tipo de métrica, proceso de escalamiento para desviaciones críticas, metodología de análisis de causas raíz con accountability, sistema de scoring de performance presupuestaria por responsable, incentivos y consecuencias ligados a cumplimiento presupuestario, proceso formal de explicación y plan de acción para desviaciones, seguimiento de efectividad de acciones correctivas implementadas."
+  },
+  {
+    "nombre": "Sistema Integral de Reportes Regulatorios",
+    "cuando": "Cumplimiento regulatorio integral",
+    "frecuencia": "Según calendario regulatorio",
+    "contenido": "Desarrolla un sistema completo de reportes de cumplimiento regulatorio que cubra: reportes fiscales (declaraciones mensuales, anuales, informativas), reportes laborales (nóminas, seguridad social, parafiscales), reportes financieros regulatorios (superintendencias, bancos centrales), reportes de comercio exterior (importaciones, exportaciones), reportes ambientales cuando aplique, reportes de precios de transferencia, reportes de prevención de lavado de dinero. Para cada reporte incluye: cronograma de presentación, validaciones de calidad, proceso de aprobación, backup de respaldo, y tracking de status de presentación."
+  },
+  {
+    "nombre": "Dashboard de Compliance en Tiempo Real",
+    "cuando": "Monitoreo continuo de cumplimiento",
+    "frecuencia": "Actualización continua",
+    "contenido": "Crea un dashboard de compliance que monitoree en tiempo real: status de todas las obligaciones regulatorias pendientes, semáforos de alerta por proximidad a fechas límite, tracking de multas o sanciones históricas y su follow-up, métricas de calidad en presentación de reportes (% error, re-trabajo), análisis de riesgo de compliance por área regulatoria, costo total de compliance (tiempo, recursos, multas), benchmarking de performance vs. mejores prácticas del sector, análisis de impacto de cambios regulatorios en pipeline. Dashboard debe facilitar priorización de esfuerzos y asignación eficiente de recursos de compliance."
+  },
+  {
+    "nombre": "Reportes de Auditoría de Compliance",
+    "cuando": "Auditoría de cumplimiento",
+    "frecuencia": "Anual o según necesidad",
+    "contenido": "Diseña reportes especializados para auditorías de cumplimiento (internas y externas) que incluya: inventario completo de obligaciones regulatorias aplicables, matriz de cumplimiento con evidencia de soporte, identificación de gaps o áreas de mejora, evaluación de efectividad de controles internos de compliance, análisis de riesgo residual post-controles, recomendaciones priorizadas por impacto y esfuerzo de implementación, plan de acción con responsables y fechas, métricas de seguimiento para mejora continua. Los reportes deben facilitar la certificación ejecutiva de compliance y preparar para auditorías regulatorias."
+  },
+  {
+    "nombre": "Calendario Fiscal Integral Automatizado",
+    "cuando": "Planificación fiscal anual",
+    "frecuencia": "Anual con actualizaciones",
+    "contenido": "Desarrolla un calendario fiscal completo que incluya todas las obligaciones tributarias nacionales, regionales y municipales aplicables a [tipo de empresa/sector], organizando: fechas de vencimiento mensuales, bimestrales, trimestrales y anuales, obligaciones diferenciadas por régimen tributario (común, simplificado, especial), alertas automáticas con 30, 15 y 5 días de anticipación, categorización por tipo de impuesto (renta, IVA, industria y comercio, retenciones, parafiscales), indicación de formularios y anexos requeridos, valor estimado de cada obligación, responsable interno asignado, y status de cumplimiento. Incluye funcionalidad para actualización automática por cambios normativos y sincronización con sistema contable."
+  },
+  {
+    "nombre": "Calendario Fiscal con Análisis de Impacto de Cash Flow",
+    "cuando": "Planificación de liquidez fiscal",
+    "frecuencia": "Mensual",
+    "contenido": "Diseña un calendario de obligaciones tributarias integrado con proyección de flujo de caja que incluya: cronograma de pagos de impuestos con montos proyectados, análisis de impacto en liquidez por períodos críticos, identificación de oportunidades de diferimiento legal de pagos, estrategias de planificación de pagos para optimizar flujo de caja, análisis de beneficios de pagos anticipados vs. costo de oportunidad, proyección de saldos a favor y compensaciones disponibles, calendar de devoluciones esperadas, planificación de financiamiento para pagos importantes, y alertas de períodos de alta exigencia de liquidez para impuestos."
+  },
+  {
+    "nombre": "Calendario de Obligaciones por Entidad Múltiple",
+    "cuando": "Grupo empresarial multi-entidad",
+    "frecuencia": "Mensual",
+    "contenido": "Crea un sistema de calendario fiscal para grupo empresarial con múltiples entidades que contemple: matriz consolidada de obligaciones por cada empresa del grupo, diferenciación por jurisdicciones y regímenes aplicables, identificación de obligaciones comunes vs. específicas por entidad, cronograma de preparación vs. presentación de cada declaración, dependencias entre obligaciones (información base requerida), análisis de carga de trabajo por períodos para planificación de recursos, alertas de conflictos de fechas o sobrecargas operativas, dashboard ejecutivo de cumplimiento grupal, y reportes de eficiencia en gestión tributaria. Sistema debe optimizar recursos compartidos y evitar duplicación de esfuerzos."
+  },
+  {
+    "nombre": "Análisis Integral de Reforma Tributaria",
+    "cuando": "Nueva reforma tributaria",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla un análisis comprehensivo de [nueva reforma tributaria/cambio normativo] que incluya: resumen ejecutivo de los cambios más relevantes para nuestro tipo de empresa, comparativo detallado entre normativa anterior vs. nueva, análisis cuantitativo del impacto en carga tributaria anual, identificación de nuevas obligaciones y fechas de implementación, oportunidades de planificación fiscal emergentes, riesgos de cumplimiento y áreas de incertidumbre jurídica, recomendaciones de acciones inmediatas vs. mediano plazo, análisis de precedentes administrativos y doctrinarios disponibles, cronograma de implementación por fases, y estrategia de comunicación a stakeholders internos."
+  },
+  {
+    "nombre": "Impacto Sectorial de Cambios Normativos",
+    "cuando": "Cambio normativo sectorial",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora un análisis específico del impacto de [cambio normativo] en el sector [industria específica], incluyendo: particularidades del cambio para empresas del sector, análisis comparativo de impacto vs. otros sectores, identificación de ventajas o desventajas competitivas creadas, casos especiales o excepciones aplicables al sector, análisis de precedentes en sectores similares, impacto en estructura de costos sectorial, efectos en pricing y competitividad, recomendaciones específicas para empresas del sector, análisis de posicionamiento estratégico frente al cambio, y evaluación de necesidad de reestructuración de operaciones o estructura corporativa."
+  },
+  {
+    "nombre": "Comunicación Ejecutiva de Cambios Normativos Urgentes",
+    "cuando": "Cambio normativo crítico",
+    "frecuencia": "Según necesidad",
+    "contenido": "Redacta una comunicación ejecutiva urgente sobre [cambio normativo específico] dirigida al CEO y CFO, estructurada como un memo ejecutivo de alta prioridad que incluya: Sección de Alerta Crítica con nivel de urgencia, timeline de implementación obligatorio y fechas clave, consecuencias específicas del incumplimiento; Contexto y Análisis con resumen ejecutivo del cambio, comparación antes/después de la regulación, áreas de negocio impactadas; Impacto Financiero Cuantificado con inversión requerida, costos de cumplimiento anuales, riesgos financieros; Plan de Acción Ejecutivo con matriz de decisiones críticas, roadmap de implementación, recursos y presupuesto; y Recomendaciones Estratégicas con priorización, próximos pasos inmediatos y solicitudes específicas de aprobación."
+  },
+  {
+    "nombre": "Plan Integral de Optimización Fiscal Anual",
+    "cuando": "Planificación fiscal estratégica",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla un plan estratégico de optimización fiscal que incluya: análisis de la carga tributaria actual por tipo de impuesto, identificación de oportunidades de ahorro fiscal legales, evaluación costo-beneficio de cada estrategia propuesta, análisis de riesgo tributario vs. beneficio esperado, cronograma de implementación por prioridad e impacto, estimación de ahorros fiscales anuales por estrategia, requerimientos de cambios operativos o estructurales, necesidades de documentación de respaldo, análisis de sostenibilidad a largo plazo de cada estrategia, consideraciones de riesgo reputacional, y plan de monitoreo continuo de efectividad."
+  },
+  {
+    "nombre": "Optimización de Estructura Corporativa",
+    "cuando": "Reestructuración empresarial",
+    "frecuencia": "Según necesidad",
+    "contenido": "Diseña una estrategia de optimización de estructura corporativa para minimizar carga fiscal que contemple: análisis de la estructura actual y su eficiencia fiscal, evaluación de estructuras alternativas (holding, subsidiarias, sucursales), análisis de beneficios fiscales por jurisdicción, estrategias de precios de transferencia entre entidades, optimización de flujos de dividendos y regalías, consideración de tratados de doble tributación, análisis de thin capitalization rules, evaluación de regímenes especiales disponibles, análisis de substance requirements, costos de restructuración vs. beneficios esperados, y timeline de implementación con aspectos regulatorios."
+  },
+  {
+    "nombre": "Estrategias de Diferimiento y Timing Fiscal",
+    "cuando": "Optimización de timing fiscal",
+    "frecuencia": "Trimestral",
+    "contenido": "Elabora estrategias de optimización fiscal basadas en timing y diferimiento que incluyan: análisis de oportunidades de diferimiento de ingresos, estrategias de aceleración de deducciones, optimización del reconocimiento de ingresos y gastos, planificación de realizaciones de inversiones, estrategias de compensación de pérdidas fiscales, análisis de beneficios de depreciación acelerada, planificación de distribución de utilidades, timing óptimo para reestructuraciones, consideración de cambios normativos futuros, análisis de valor presente neto de estrategias de timing, riesgos de timing agresivo, y implementación práctica de estrategias seleccionadas."
+  },
+  {
+    "nombre": "Matriz Integral de Riesgos Tributarios",
+    "cuando": "Evaluación de riesgos fiscales",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla una matriz comprehensiva de riesgos tributarios que identifique y evalúe: riesgos por tipo de impuesto (renta, IVA, retenciones, territoriales), riesgos por proceso (determinación, declaración, pago, fiscalización), evaluación de probabilidad e impacto financiero de cada riesgo, análisis de riesgos por posiciones fiscales adoptadas, identificación de áreas grises o interpretativas, evaluación de calidad de documentación de respaldo, análisis de precedentes desfavorables aplicables, riesgos de auditoría por sectores de alta fiscalización, evaluación de controles internos tributarios existentes, cuantificación de exposición máxima por riesgo, y plan de mitigación priorizado."
+  },
+  {
+    "nombre": "Análisis de Riesgo en Posiciones Fiscales Agresivas",
+    "cuando": "Evaluación de posición fiscal compleja",
+    "frecuencia": "Según necesidad",
+    "contenido": "Evalúa el riesgo tributario de posiciones fiscales específicas adoptadas o en consideración, incluyendo: análisis legal de la solidez de cada posición, evaluación de precedentes administrativos y jurisprudenciales, análisis de doctrina tributaria aplicable, evaluación del apetito de riesgo vs. beneficio fiscal, análisis de probabilidad de cuestionamiento en auditoría, estimación de costos de defensa y posibles sanciones, evaluación de impacto reputacional de cuestionamientos, análisis de estrategias de documentación defensiva, consideración de consultas previas a autoridades, evaluación de settlements o acuerdos preventivos, estrategias de exit si el riesgo se materializa, y recomendación final sobre adopción de la posición."
+  },
+  {
+    "nombre": "Sistema de Early Warning Tributario",
+    "cuando": "Monitoreo continuo de riesgos fiscales",
+    "frecuencia": "Mensual",
+    "contenido": "Diseña un sistema de alertas tempranas para riesgos tributarios que incluya: identificación de indicadores de riesgo (red flags) por tipo de impuesto, métricas que sugieren mayor probabilidad de auditoría, monitoreo de changes en interpretación administrativa, alertas por vencimiento de estatutos de limitación, seguimiento de litigios tributarios del sector, monitoreo de cambios en criterios de fiscalización, indicadores de inconsistencias en declaraciones, alertas de desviaciones significativas vs. sector, sistema de scoring de riesgo tributario general, dashboard de alertas por criticidad, protocolos de escalamiento por nivel de riesgo, y plan de acciones preventivas automáticas."
+  },
+  {
+    "nombre": "Sistema Integral de Documentación Tributaria",
+    "cuando": "Establecimiento de sistema documental",
+    "frecuencia": "Una vez implementado",
+    "contenido": "Desarrolla un sistema completo de documentación y cumplimiento tributario que incluya: inventario maestro de obligaciones por jurisdicción/entidad/impuesto/período, biblioteca de templates estandarizados con control de versiones y matriz RACI de responsabilidades, cronograma dinámico de preparación documental con alertas automáticas, sistema de control de versiones con historial completo, checklist de validación de completitud por obligación, procedimientos automatizados de respaldo y recuperación probados, data rooms virtuales de solo lectura para auditorías, documentación detallada de procesos de cálculo, repositorio de evidencia de controles internos tributarios vinculada a soporte, protocolos de confidencialidad con acceso basado en roles, encriptación de datos y pistas de auditoría inmutables."
+  },
+  {
+    "nombre": "Expediente Defensivo Ante Auditorías",
+    "cuando": "Preparación para auditoría fiscal",
+    "frecuencia": "Anual o ante auditoría",
+    "contenido": "Crea un expediente defensivo completo preparado para potenciales auditorías tributarias que contenga: memorando legal de posiciones adoptadas con sustento normativo, documentación completa de transacciones significativas, evidencia de business rationale para decisiones fiscales, contratos y documentos soporte de operaciones, documentación de precios de transferencia cuando aplique, evidencia de cumplimiento de obligaciones formales, memorando de controles internos tributarios implementados, análisis de consistencia entre posiciones contables y fiscales, documentación de consultas realizadas a asesores, precedentes favorables aplicables a nuestras posiciones, y estrategia de presentación organizada por temas/impuestos."
+  },
+  {
+    "nombre": "Documentación de Transfer Pricing y Operaciones Internacionales",
+    "cuando": "Operaciones internacionales complejas",
+    "frecuencia": "Anual",
+    "contenido": "Elabora documentación especializada para cumplimiento en precios de transferencia y operaciones internacionales que incluya: master file y local file según estándares OCDE, análisis económico de precios de transferencia aplicados, documentación de comparables y benchmarks utilizados, evidencia de substance en operaciones internacionales, documentación de business rationale para estructuras internacionales, contratos intercompany con términos arm's length, documentación de funciones, activos y riesgos por entidad, evidencia de decision-making process en operaciones internacionales, documentación de intangibles y su valoración, análisis de cadena de valor global, y preparación para auditorías coordinadas internacionales."
+  },
+  {
+    "nombre": "Diseño de Programa Integral de Auditoría",
+    "cuando": "Planificación de auditoría anual",
+    "frecuencia": "Anual",
+    "contenido": "Actúa como auditor senior certificado (CIA/CPA) con experiencia en [sector específico]. Diseña un programa de auditoría integral para evaluar [proceso/área específica] que incluya: análisis detallado del entorno regulatorio aplicable, matriz de riesgos estratificada por probabilidad e impacto, objetivos específicos SMART alineados con el apetito de riesgo organizacional, procedimientos sustantivos y de cumplimiento con técnicas de muestreo estadístico, cronograma detallado con hitos críticos y dependencias, asignación de recursos humanos por nivel de experiencia, presupuesto detallado con análisis de sensibilidad, metodología de documentación según estándares internacionales, indicadores de calidad y efectividad del programa, y plan de contingencia para riesgos identificados durante la ejecución."
+  },
+  {
+    "nombre": "Programa Basado en Riesgo Empresarial",
+    "cuando": "Auditoría basada en ERM",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla un programa de auditoría basado en Enterprise Risk Management (ERM) para una organización con operaciones complejas. El programa debe incluir: assessment integral del modelo de tres líneas de defensa, mapeo detallado de riesgos operacionales, financieros, regulatorios, reputacionales y estratégicos, evaluación del risk appetite statement y tolerancia al riesgo por proceso, metodología de priorización usando matriz de materialidad vs. riesgo residual, diseño de universo auditable con frecuencias basadas en riesgo inherente, técnicas de auditoría continua y monitoreo en tiempo real, integración con comité de auditoría y reportes al board, métricas de cobertura de riesgo y ROI de actividades de auditoría, benchmarking con mejores prácticas de la industria, y plan plurianual con revisiones dinámicas del assessment de riesgo."
+  },
+  {
+    "nombre": "Actualización y Optimización Avanzada de Programa",
+    "cuando": "Revisión de programa de auditoría existente",
+    "frecuencia": "Anual",
+    "contenido": "Conduce una revisión comprehensiva y actualización del programa de auditoría para [área específica] considerando: gap analysis contra nuevas regulaciones (SOX, GDPR, COSO 2013, ISO 31000), impacto de transformación digital y controles en ambiente de nube híbrida, integración de analytics avanzados (machine learning, process mining, predictive analytics), lecciones aprendidas de auditorías anteriores con análisis de causa raíz de deficiencias, benchmarking contra peer organizations y leading practices, optimización de eficiencia operativa mediante automatización de procedimientos rutinarios, desarrollo de competencias del equipo auditor en nuevas tecnologías y metodologías, integración con sistemas de GRC (Governance, Risk & Compliance), metodología de quality assurance y peer review interno, y medición del valor agregado de auditoría mediante balanced scorecard específico."
+  },
+  {
+    "nombre": "Evaluación COSO Avanzada",
+    "cuando": "Evaluación de controles internos",
+    "frecuencia": "Anual",
+    "contenido": "Conduce una evaluación exhaustiva del sistema de control interno aplicando COSO 2013 con enfoque en los 17 principios fundamentales. Para cada componente evalúa: Ambiente de Control (tone at the top, estructura organizacional, políticas de RRHH), Evaluación de Riesgos (proceso de identificación, assessment de riesgos, proceso de respuesta al riesgo), Actividades de Control (controles preventivos, detectivos y compensatorios, segregación de funciones), Información y Comunicación (calidad y relevancia de información, efectividad de canales de comunicación), y Monitoreo (actividades de monitoreo continuo, proceso de reporte de deficiencias). Incluye testing de efectividad operativa y recomendaciones de mejora."
+  },
+  {
+    "nombre": "Controles IT y Ciberseguridad",
+    "cuando": "Auditoría de tecnología",
+    "frecuencia": "Anual",
+    "contenido": "Diseña una evaluación comprehensiva de controles IT y ciberseguridad que abarque: Governance IT (alineación estrategia IT y negocio, estructura de governance IT, políticas IT y compliance), Controles Generales IT (controles de acceso lógico, gestión de cambios, controles de operación IT, controles de respaldo y disaster recovery), Ciberseguridad (security framework, controles de seguridad perimetral y endpoint, testing de respuesta a incidentes, programa de awareness y training), Controles de Aplicación (controles automatizados en aplicaciones críticas, integridad y completitud de datos, controles de reportes financieros), y Emerging Technologies (controles en cloud computing, riesgos en IoT, AI/ML y blockchain implementations)."
+  },
+  {
+    "nombre": "Matriz Avanzada de Controles",
+    "cuando": "Evaluación integral de controles",
+    "frecuencia": "Anual",
+    "contenido": "Desarrolla una matriz multidimensional de evaluación de controles internos que incorpore: mapping detallado risk-to-control con análisis de cobertura, clasificación de riesgos por categoría, assessment de riesgo inherente vs. residual, taxonomía de controles (preventivo/detectivo/correctivo, manual/automatizado), evaluación de design effectiveness vs. operating effectiveness, metodología de testing basada en riesgo, métricas de efectividad operativa, KPIs de eficiencia de controles, benchmarking vs. industry best practices, assignment de ownership y accountability por control, proceso de actualización y mantenimiento de controles, dashboard ejecutivo con heatmaps de efectividad de controles, trending analysis y predictive indicators de deterioro de controles."
+  },
+  {
+    "nombre": "Análisis Forense Avanzado",
+    "cuando": "Detección de irregularidades financieras",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla un marco integral de auditoría forense que detecte irregularidades financieras y operacionales mediante análisis estadístico avanzado. Implementa la Ley de Benford para analizar primer y segundo dígito, detecta duplicados exactos y difusos usando scoring de similitud, identifica transacciones fuera de horario laboral, aplica reconocimiento de patrones para detectar números redondos y vacíos de secuencia, identifica valores atípicos mediante desviaciones estándar y rangos intercuartílicos, incorpora análisis conductual para identificar patrones anómalos de acceso por usuario, utiliza machine learning para scoring de anomalías, procesamiento de lenguaje natural para analizar justificaciones contables, y social network analysis para detectar colusión. Genera dashboards interactivos con capacidad drill-down y workflows de gestión de casos que preserven evidencia."
+  },
+  {
+    "nombre": "Detección de Fraude Ocupacional Especializado",
+    "cuando": "Programa de prevención de fraude",
+    "frecuencia": "Anual",
+    "contenido": "Diseña un programa de detección de fraude ocupacional basado en el Árbol de Fraude de la ACFE. Para apropiación indebida de activos, detecta desnatado de efectivo, fraude en inventario, y facturación fraudulenta identificando empresas fantasma. En corrupción, evalúa sobornos mediante relaciones inusuales con proveedores, comisiones ilícitas a través de manipulación de licitaciones, y extorsión económica. Para fraude en estados financieros, examina reconocimiento indebido de ingresos, manipulación de gastos, y declaraciones erróneas. Analiza señales de alerta incluyendo indicadores conductuales de presión financiera, evidencia documental alterada, y debilidades de control. Implementa protocolos de investigación con técnicas de entrevista estructuradas, análisis forense digital, y preservación de evidencia bajo estándares de cadena de custodia."
+  },
+  {
+    "nombre": "Sistema de Alertas Inteligentes de Auditoría",
+    "cuando": "Monitoreo continuo de riesgos",
+    "frecuencia": "Actualización continua",
+    "contenido": "Construye sistema de alerta temprana con indicadores cuantitativos (razones financieras, DSO, rotación, márgenes, variaciones presupuesto vs real, KPIs con benchmarking) y cualitativos (comportamiento gerencial, estrés organizacional, factores externos). Habilita monitoreo tecnológico con auditoría continua automatizada, minería de procesos y machine learning para patrones. Desarrolla scoring de riesgo multifactorial con modelado predictivo y evaluación dinámica en tiempo real. Gestiona umbrales con límites estadísticos, intervalos de confianza optimizando falsos positivos y protocolos de escalamiento multinivel. Implementa respuesta automatizada con alertas priorizadas, workflows estandarizados, dashboards gerenciales y mejora continua mediante análisis y refinamiento constante."
+  },
+  {
+    "nombre": "Análisis Costo-Beneficio Avanzado de Recomendaciones",
+    "cuando": "Priorización de hallazgos de auditoría",
+    "frecuencia": "Cada auditoría",
+    "contenido": "Desarrolla un framework sofisticado de priorización de recomendaciones mediante evaluación cuantitativa de riesgo con distribuciones de probabilidad y simulación Monte Carlo, análisis de velocidad de riesgo para determinar rapidez de materialización, y mapeo de interdependencias identificando efectos en cascada. Incorpora análisis financiero integral contemplando costos de implementación, operativos y de oportunidad, cálculo de ROI mediante NPV y payback period, y análisis de TCO incluyendo tecnología, capacitación y mantenimiento. Evalúa alineación estratégica con objetivos organizacionales, requisitos regulatorios, impacto en ventaja competitiva, y preparación organizacional para el cambio. Analiza factibilidad de implementación mediante requerimientos de recursos, cronogramas usando Critical Path Method, y complejidad de gestión del cambio. Desarrolla métricas de creación de valor con KPIs para medir éxito y análisis de sensibilidad para validar robustez bajo múltiples escenarios."
+  },
+  {
+    "nombre": "Plan de Acción Detallado de Hallazgos",
+    "cuando": "Implementación de recomendaciones",
+    "frecuencia": "Cada auditoría",
+    "contenido": "Transforma hallazgos de auditoría en planes ejecutables mediante análisis de causa raíz con diagramas de espina de pescado y 5 porqués, cuantificación de impacto con análisis de escenarios, y evaluación de stakeholders afectados. Desarrolla soluciones alternativas con análisis pros/contras, investigación de mejores prácticas y evaluación de tecnologías emergentes. Planifica implementación con estructura de desglose de trabajo, hitos, dependencias y análisis de ruta crítica, asignación de recursos humanos, presupuesto y tecnología, y plan de gestión de riesgos con estrategias de mitigación. Establece gobierno con asignación clara de roles y responsabilidades, comité directivo con autoridad apropiada, y plan de comunicación con actualizaciones y escalamiento. Desarrolla marco de monitoreo con KPIs líderes y rezagados, revisiones de hitos con criterios de éxito, y procedimientos de aseguramiento de calidad."
+  },
+  {
+    "nombre": "Framework de Mejora Continua",
+    "cuando": "Establecimiento de cultura de mejora",
+    "frecuencia": "Implementación continua",
+    "contenido": "Establece marco de mejora continua integrando recomendaciones de auditoría con excelencia organizacional mediante comité directivo con patrocinio C-level y representación interfuncional, centro de excelencia para estandarización metodológica, e integración con comités de auditoría, riesgo y calidad existentes. Integra metodologías Lean Six Sigma para resolución sistemática de problemas, gestión de procesos de negocio para visibilidad end-to-end, y metodología ágil para mejoramiento iterativo. Implementa plataforma GRC integrada para seguimiento centralizado de recomendaciones, riesgos y controles, automatización de workflows con aprobaciones y notificaciones, y dashboards analíticos para visibilidad en tiempo real. Desarrolla modelo de madurez de capacidades, gestión de conocimiento mediante repositorio de mejores prácticas, integración con balanced scorecard, y cultura mediante framework de gestión del cambio."
+  },
+  {
+    "nombre": "Sistema de Seguimiento Avanzado de Hallazgos",
+    "cuando": "Monitoreo de implementación",
+    "frecuencia": "Mensual",
+    "contenido": "Desarrolla un protocolo exhaustivo de verificación de cierre de hallazgos de auditoría que contemple: checklist específico de validación por tipo de hallazgo, metodología de verificación de evidencias presentadas (documental, observación, re-ejecución, confirmación), evaluación de diseño y efectividad operativa de controles implementados, pruebas de sostenibilidad de las acciones correctivas (mínimo 3 meses de operación), verificación de que la acción aborda la causa raíz y no solo el síntoma, evaluación de cambios en procesos, políticas o procedimientos, confirmación de capacitación del personal involucrado, validación de documentación actualizada (manuales, workflows), pruebas independientes de la efectividad del control, evaluación de controles compensatorios implementados, análisis de si se generaron riesgos residuales nuevos, sign-off formal de auditoría interna con criterios objetivos, comunicación formal de cierre a stakeholders relevantes, y archivo completo del expediente de cierre."
+  },
+  {
+    "nombre": "Verificación de Cierre Comprehensiva",
+    "cuando": "Cierre de hallazgos de auditoría",
+    "frecuencia": "Cada hallazgo",
+    "contenido": "Desarrolla un protocolo exhaustivo de verificación de cierre de hallazgos de auditoría que contemple: checklist específico de validación por tipo de hallazgo, metodología de verificación de evidencias presentadas (documental, observación, re-ejecución, confirmación), evaluación de diseño y efectividad operativa de controles implementados, pruebas de sostenibilidad de las acciones correctivas (mínimo 3 meses de operación), verificación de que la acción aborda la causa raíz y no solo el síntoma, evaluación de cambios en procesos, políticas o procedimientos, confirmación de capacitación del personal involucrado, validación de documentación actualizada (manuales, workflows), pruebas independientes de la efectividad del control, evaluación de controles compensatorios implementados, análisis de si se generaron riesgos residuales nuevos, sign-off formal de auditoría interna con criterios objetivos, comunicación formal de cierre a stakeholders relevantes, y archivo completo del expediente de cierre. El protocolo debe asegurar que los cierres sean reales, sostenibles y que el riesgo haya sido efectivamente mitigado antes de dar por cerrado cualquier hallazgo."
+  },
+  {
+    "nombre": "Reporte Ejecutivo Estratégico de Auditoría",
+    "cuando": "Reporte al comité de auditoría",
+    "frecuencia": "Trimestral",
+    "contenido": "Elabora un reporte ejecutivo estratégico de seguimiento de hallazgos para el Comité de Auditoría y Alta Dirección que incluya: resumen ejecutivo de una página con highlights clave, métricas agregadas de cumplimiento (% implementación, hallazgos cerrados vs. abiertos, aging promedio), análisis de hallazgos críticos abiertos con su impacto en el perfil de riesgo organizacional, hallazgos vencidos con explicación de causas de retraso y plan de acción acelerado, tendencias de implementación por área/responsable con benchmarking interno, análisis de reincidencias y hallazgos repetitivos que sugieren problemas sistémicos, evaluación de efectividad de acciones correctivas implementadas, identificación de áreas con mayor resistencia al cambio o menor cultura de control, impacto agregado de hallazgos no cerrados en exposición al riesgo, reconocimiento de áreas con mejor desempeño en remediación, recomendaciones estratégicas para mejorar tasas de implementación, necesidades de recursos o apoyo ejecutivo identificadas, análisis de implicaciones para el plan de auditoría del próximo período, y solicitud de decisiones o aprobaciones requeridas del comité."
+  },
+  {
+    "nombre": "Análisis Comparativo de Marcos Contables Internacionales",
+    "cuando": "Cliente con operaciones internacionales",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla un análisis comparativo exhaustivo entre [IFRS/US GAAP/normativa local específica] aplicable a [tipo de empresa/sector] que incluya: tabla comparativa de principales diferencias en reconocimiento, medición y presentación, análisis de impacto financiero de cada diferencia en los estados financieros, identificación de áreas de convergencia y divergencia material, requerimientos de revelación distintos entre normativas, tratamiento diferenciado de transacciones críticas (arrendamientos, instrumentos financieros, consolidación, revenue recognition), análisis de conceptos fundamentales que difieren (matching principle, substance over form, fair value), impacto en ratios financieros clave por diferencias normativas, requerimientos de conciliación entre marcos contables, análisis de costos de conversión/dual reporting, casos prácticos de aplicación con ejemplos de la industria, timeline de adopción de nuevas normas en cada jurisdicción, y recomendaciones sobre qué marco contable utilizar según objetivos estratégicos del cliente."
+  },
+  {
+    "nombre": "Evaluación de Impacto de Cambio de Marco Contable",
+    "cuando": "Transición entre marcos contables",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora un análisis de impacto integral para la transición de [marco contable actual] a [nuevo marco contable] que contemple: gap analysis detallado entre políticas contables actuales vs. requeridas, cuantificación del impacto en balance de apertura y estados financieros comparativos, identificación de transacciones que requerirán re-medición o reclasificación, análisis de impacto en covenants bancarios y acuerdos contractuales, evaluación de cambios necesarios en sistemas contables y procesos, necesidades de capacitación del equipo contable y financiero, cronograma de implementación con hitos críticos, presupuesto estimado de conversión (consultores, sistemas, capacitación), análisis de impacto fiscal de ajustes de conversión, estrategia de comunicación a inversores y stakeholders sobre cambios, desarrollo de políticas contables nuevas bajo el marco adoptado, plan de auditoría para primera aplicación, y análisis costo-beneficio de la conversión. Incluye roadmap detallado de implementación por fases."
+  },
+  {
+    "nombre": "Navegación de Regulaciones Multi-jurisdiccionales",
+    "cuando": "Operaciones en múltiples países",
+    "frecuencia": "Anual",
+    "contenido": "Diseña una guía integral de cumplimiento para empresa que opera en [lista de países/jurisdicciones] que incluya: matriz de requerimientos regulatorios por jurisdicción (contables, fiscales, legales), análisis de conflictos entre regulaciones de diferentes países, identificación de normativas extraterritoriales aplicables (FCPA, UK Bribery Act, GDPR), requerimientos de reporte país por país (country-by-country reporting), obligaciones de registro y licencias profesionales por jurisdicción, regulaciones de precios de transferencia aplicables, restricciones de movimiento de capital y repatriación de utilidades, requerimientos de auditoría local vs. grupo, obligaciones de gobierno corporativo diferenciadas, plazos y calendarios regulatorios consolidados, análisis de riesgos de cumplimiento por mercado, estrategia de estructura legal óptima considerando regulaciones, y plan de monitoreo continuo de cambios regulatorios. Incluye directorio de autoridades regulatorias y asesores locales recomendados por jurisdicción."
+  },
+  {
+    "nombre": "Sistema de Reporteo Multi-moneda Automatizado",
+    "cuando": "Operaciones en múltiples monedas",
+    "frecuencia": "Implementación única",
+    "contenido": "Desarrolla una arquitectura de reporteo financiero en múltiples monedas que incluya: definición de moneda funcional, de presentación y local para cada entidad, metodología de conversión para cada tipo de partida (monetaria, no-monetaria, patrimonio), tratamiento de diferencias de cambio (P&L vs. OCI), fuentes de datos para tipos de cambio (spot, promedio, histórico) con validaciones, frecuencia de actualización de tipos de cambio y proceso de cierre, consolidación multi-moneda con eliminaciones de transacciones intercompañía, reportes simultáneos en moneda local, funcional y de presentación del grupo, análisis de sensibilidad a variaciones cambiarias, dashboard de exposición cambiaria por moneda y por entidad, revelaciones requeridas sobre riesgo cambiario y exposición, conciliación automática de diferencias de conversión, simulador de impacto de escenarios cambiarios en resultados consolidados, reportes de performance eliminando efectos FX para análisis operativo, y auditoría trail completo de conversiones aplicadas."
+  },
+  {
+    "nombre": "Análisis de Impacto Cambiario en Performance",
+    "cuando": "Evaluación de efectos cambiarios",
+    "frecuencia": "Trimestral",
+    "contenido": "Crea un análisis comprehensivo del impacto de fluctuaciones cambiarias en performance financiera que incluya: descomposición de variaciones en resultados entre efectos operativos vs. efectos FX, análisis de impacto de conversión (translación) vs. impacto transaccional, cuantificación de exposición económica, transaccional y de traslación por moneda, análisis de sensibilidad mostrando impacto en EBITDA, utilidad neta y flujo de caja de movimientos +/-5%, 10% en principales monedas, identificación de coberturas naturales en el negocio (ingresos y costos en misma moneda), evaluación de estrategias de hedging implementadas y su efectividad, análisis de competitividad relativa por movimientos cambiarios en mercados clave, impacto en pricing power y estructura de costos por variaciones FX, proyección de exposición cambiaria futura basada en pipeline comercial, recomendaciones de estrategia de cobertura óptima considerando costo vs. beneficio, y presentación de resultados 'constant currency' para mejor análisis de performance operativo. Incluye waterfall charts mostrando impacto de cada moneda en resultados consolidados."
+  },
+  {
+    "nombre": "Revelaciones y Compliance Multi-moneda",
+    "cuando": "Estados financieros internacionales",
+    "frecuencia": "Anual",
+    "contenido": "Elabora el paquete completo de revelaciones sobre aspectos multi-moneda para estados financieros y reportes regulatorios que incluya: nota sobre políticas contables de conversión de moneda extranjera, revelación de monedas funcionales por entidad significativa, análisis de sensibilidad cuantitativo de exposición a riesgo cambiario, revelación de instrumentos de cobertura y contabilidad de coberturas aplicada, detalle de diferencias de cambio reconocidas en P&L vs. OCI, conciliación de movimientos en reserva de conversión acumulada, revelación de restricciones a repatriación de capital por controles cambiarios, análisis de concentración de exposición por moneda, revelación de políticas de gestión de riesgo cambiario, explicación de cambios en moneda funcional si los hubo, impacto de hiperinflación en economías aplicables (IAS 29), cumplimiento con requerimientos específicos de reguladores locales sobre FX, y presentación ejecutiva que explique impacto FX de manera comprensible para stakeholders no financieros. Incluye templates de revelación cumpliendo IFRS 7, ASC 830 y regulaciones locales aplicables."
+  },
+  {
+    "nombre": "Guía Ejecutiva de Ambiente Regulatorio Local",
+    "cuando": "Entrada a nuevo mercado",
+    "frecuencia": "Según necesidad",
+    "contenido": "Desarrolla una guía comprensiva del ambiente regulatorio de [país específico] para ejecutivos internacionales que incluya: overview del sistema legal (common law vs. civil law) y sus implicaciones, estructura del sistema regulatorio contable y de auditoría, autoridades regulatorias clave y sus competencias (superintendencias, comisiones, ministerios), marco de normatividad contable aplicable y roadmap de convergencia a IFRS, regulaciones fiscales fundamentales (tasas, incentivos, restricciones), regulaciones laborales críticas y costos asociados, regulaciones de comercio exterior y aduaneras, regulaciones ambientales y de sostenibilidad, protección de datos y privacidad aplicable, gobierno corporativo y responsabilidades de directores, regulaciones sectoriales específicas si aplica, proceso de establecimiento de presencia legal (sucursal vs. subsidiaria), requerimientos de capital mínimo y restricciones a inversión extranjera, análisis de riesgos regulatorios por orden de impacto, y directorio de autoridades con contactos clave. La guía debe ser estratégica, práctica y orientada a facilitar decisiones de entrada o expansión en el mercado."
+  },
+  {
+    "nombre": "Análisis de Compliance Regulatorio Local Detallado",
+    "cuando": "Operación en mercado extranjero",
+    "frecuencia": "Anual",
+    "contenido": "Crea un análisis exhaustivo de requerimientos de cumplimiento regulatorio en [jurisdicción específica] que incluya: inventario completo de obligaciones regulatorias por tipo (contables, fiscales, laborales, corporativas, sectoriales), cronograma consolidado de filing y reporting requirements, análisis de sanciones y consecuencias por incumplimiento, requerimientos de licencias y permisos específicos del negocio, obligaciones de reporte a autoridades estadísticas, regulaciones de precios de transferencia y documentación requerida, obligaciones de auditoría legal y rotación de auditores, requerimientos de gobierno corporativo (composición de junta, comités), regulaciones de protección al consumidor aplicables, obligaciones ambientales y de responsabilidad social empresarial, regulaciones de competencia y prácticas comerciales, requerimientos de información pública para empresas listadas o reguladas, procedimientos de inspección y auditoría por autoridades, análisis de precedentes de enforcement relevantes para el sector, estimación de costos de cumplimiento (profesionales, sistemas, filing fees), y plan de implementación de compliance program. Incluye matriz de riesgos regulatorios priorizados."
+  },
+  {
+    "nombre": "Comunicación de Cambios Regulatorios Locales a Matriz",
+    "cuando": "Cambio regulatorio en subsidiaria",
+    "frecuencia": "Según necesidad",
+    "contenido": "Elabora un reporte ejecutivo sobre [cambio regulatorio específico en país] dirigido a casa matriz internacional que incluya: resumen ejecutivo del cambio y su materialidad para el negocio, contexto del cambio (razones, proceso legislativo, presiones políticas/sociales), descripción técnica del cambio en regulación y comparación con situación anterior, análisis de impacto operativo en el negocio local (procesos, sistemas, personas), cuantificación del impacto financiero (costos de cumplimiento, impacto en P&L, balance), timeline de implementación y fechas críticas, acciones requeridas y recursos necesarios, análisis de cómo cambio posiciona la operación local vs. competencia, evaluación de si cambio es tendencia regional que podría replicarse, riesgos de implementación y plan de mitigación, recomendaciones estratégicas (mantener operación, expandir, reducir, reestructurar), análisis de precedentes en otros mercados donde operamos, y solicitud de aprobaciones o recursos de casa matriz. El reporte debe balancear rigurosidad técnica con claridad para audiencia internacional que puede no conocer el contexto local."
+  },
+  {
+    "nombre": "Protocolo de Comunicación Intercultural Corporativa",
+    "cuando": "Equipos globales multiculturales",
+    "frecuencia": "Implementación única",
+    "contenido": "Desarrolla un protocolo integral de comunicación intercultural para empresa global que incluya: análisis de dimensiones culturales relevantes (Hofstede, Trompenaars) para mercados donde operamos, guía de estilos de comunicación preferidos por cultura (directo vs. indirecto, contexto alto vs. bajo), protocolos de meetings y presentaciones por cultura (formalidad, estructura, toma de decisiones), análisis de concepto de tiempo y puntualidad por región (monocrónico vs. policrónico), consideraciones de jerarquía y poder en comunicación organizacional, normas de comunicación escrita (emails, reportes) adaptadas culturalmente, protocolos de negociación y persuasión por cultura, manejo de conflictos y feedback con sensibilidad cultural, uso apropiado de humor y small talk por contexto cultural, consideraciones de lenguaje no verbal y proxémica, gestión de reuniones virtuales multi-culturales, consideraciones de zona horaria y scheduling internacional, días festivos y períodos de baja actividad por región, protocolos de traducción e interpretación cuando requerido, y capacitación en competencia cultural para equipos globales. Incluye casos prácticos y escenarios comunes con do's and don'ts específicos."
+  },
+  {
+    "nombre": "Adaptación de Reportes Financieros por Audiencia Cultural",
+    "cuando": "Reportes para audiencias internacionales",
+    "frecuencia": "Según necesidad",
+    "contenido": "Diseña una metodología para adaptar reportes financieros según contexto cultural de la audiencia que contemple: análisis de preferencias de presentación de información por cultura (datos vs. narrativa, detalle vs. síntesis), adaptación de nivel de contexto requerido en reportes (culturas de alto contexto requieren más background), consideraciones sobre uso de visualizaciones y gráficos por preferencia cultural, adaptación de executive summary (longitud, nivel de detalle, estructura), manejo de información negativa o problemática según cultura (directo vs. suavizado), énfasis en diferentes métricas según valores culturales (short-term vs. long-term orientation), consideraciones de traducción más allá de idioma (conceptos, ejemplos, referencias culturales), protocolo de presentación de reportes (formato, timing, follow-up) por cultura, manejo de preguntas y clarificaciones considerando face-saving, adaptación de recomendaciones y calls-to-action por cultura, uso de referencias comparativas relevantes para cada mercado, y protocolo de validación de comprensión cross-cultural. Incluye templates de reportes adaptados para principales mercados donde operamos (América Latina, Asia, Europa, Norteamérica)."
+  },
+  {
+    "nombre": "Gestión de Conflictos Interculturales en Equipos Financieros",
+    "cuando": "Equipos financieros multiculturales",
+    "frecuencia": "Según necesidad",
+    "contenido": "Crea un framework para gestión de conflictos en equipos financieros multiculturales que incluya: identificación de fuentes comunes de conflicto intercultural (estilos de comunicación, actitudes al tiempo, jerarquía, toma de decisiones), protocolo de detección temprana de tensiones culturales, metodología de análisis de raíz cultural vs. otros factores en conflictos, estrategias de resolución adaptadas culturalmente (mediación, negociación, escalamiento), consideraciones de face-saving y preservación de relaciones, técnicas de facilitación para equipos diversos, protocolos de feedback constructivo cross-cultural, establecimiento de normas de equipo que respeten todas las culturas, role-playing de escenarios de conflicto común con resoluciones, capacitación en inteligencia cultural para líderes, creación de psychological safety en contexto multicultural, mecanismos de escalamiento cultural neutral, y medición de efectividad de equipo multicultural. Incluye casos de estudio de conflictos típicos en consolidación financiera, reporting, y coordinación de cierres entre regiones con soluciones culturalmente inteligentes."
+  },
+  {
+    "nombre": "Proceso de Consolidación Multi-entidad Global",
+    "cuando": "Consolidación financiera de grupo global",
+    "frecuencia": "Mensual",
+    "contenido": "Diseña un proceso integral de consolidación financiera para grupo multinacional que incluya: arquitectura del chart of accounts global con flexibilidad local, definición de reporting packages estandarizados por tipo de entidad, cronograma de cierre consolidado considerando zonas horarias y calendarios locales, proceso de eliminaciones intercompany automatizado con conciliación, metodología de conversión de monedas con controles de calidad, tratamiento de participaciones no controladoras y joint ventures, proceso de purchase price allocation y amortización de intangibles, eliminación de utilidades no realizadas en inventarios/activos fijos, ajustes de uniformidad de políticas contables entre entidades, proceso de impairment testing de goodwill e inversiones, consolidación de impuesto diferido a nivel grupo, workflow de validaciones y aprobaciones por niveles, reportes de variaciones pre y post-eliminaciones, análisis de contribución por entidad al consolidado, documentación de asuntos técnicos y accounting memos, auditoría trail completo del proceso de consolidación, y dashboard de status del cierre por entidad. Sistema debe permitir múltiple reporting views (statutory, management, regulatory)."
+  },
+  {
+    "nombre": "Gestión de Intercompany y Eliminaciones",
+    "cuando": "Transacciones entre entidades del grupo",
+    "frecuencia": "Mensual",
+    "contenido": "Desarrolla un sistema robusto de gestión de transacciones intercompany que incluya: catálogo estandarizado de tipos de transacciones intercompany (ventas, servicios, préstamos, regalías, management fees), protocolo de documentación de cada tipo de transacción, proceso de confirmación bilateral de saldos intercompany, conciliación automática de diferencias con workflow de resolución, análisis de causas comunes de diferencias (timing, FX, cut-off), eliminación de utilidades no realizadas por tipo de activo, tratamiento de impuesto diferido en eliminaciones, gestión de préstamos intercompany y eliminación de intereses, consolidación de cash pools y netting arrangements, eliminación de dividendos y distribuciones intragrupo, tratamiento de garantías y comfort letters intercompany, análisis de márgenes en transacciones intercompany vs. arm's length, alineación con documentación de precios de transferencia, reportes de aging de saldos intercompany pendientes, y governance del proceso (responsables, plazos, escalamiento). Incluye controles automatizados y dashboard de calidad de información intercompany."
+  },
+  {
+    "nombre": "Reporteo Segmentado y Performance Management Global",
+    "cuando": "Análisis de performance por segmentos",
+    "frecuencia": "Mensual",
+    "contenido": "Crea un sistema integral de reporteo por segmentos para grupo multinacional que incluya: definición de segmentos reportables (geográficos, líneas de negocio, matriz) según IFRS 8, asignación de ingresos, costos y activos a segmentos con metodología consistente, tratamiento de costos corporativos y su allocación/no-allocación a segmentos, métricas de performance diferenciadas por tipo de segmento, análisis de rentabilidad por segmento con ratios específicos, transfer pricing interno entre segmentos para management reporting, comparativos vs. budget y forecast por segmento, análisis de sinergias y duplicidades entre segmentos, benchmarking de segmentos vs. pure players del mercado, análisis de interdependencias entre segmentos, reportes de performance ajustados por items especiales, revelaciones requeridas por segmento en estados financieros, conciliación entre reporte segmentado y consolidado, dashboard ejecutivo de portfolio de negocios, y balanced scorecard por segmento con KPIs financieros y no financieros. Sistema debe soportar decisiones de asignación de capital y recursos entre segmentos basadas en performance real."
   }
 ]
