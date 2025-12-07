@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import promptsData from './data/prompts_data_complete.json'; // Tu archivo de datos
-import './styles.css'; // Los estilos nuevos
+// IMPORTANTE: Asegúrate de que tu JSON esté en esta ruta exacta
+import promptsDataRaw from './data/prompts_data_complete.json'; 
+import './styles.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredPrompts, setFilteredPrompts] = useState(promptsData);
+  const [filteredPrompts, setFilteredPrompts] = useState(promptsDataRaw);
 
   // Efecto de búsqueda
   useEffect(() => {
     const term = searchTerm.toLowerCase();
-    const results = promptsData.filter(prompt => 
-      prompt.nombre.toLowerCase().includes(term) ||
-      prompt.contenido.toLowerCase().includes(term) ||
+    const results = promptsDataRaw.filter(prompt => 
+      (prompt.nombre && prompt.nombre.toLowerCase().includes(term)) ||
+      (prompt.contenido && prompt.contenido.toLowerCase().includes(term)) ||
       (prompt.cuando && prompt.cuando.toLowerCase().includes(term))
     );
     setFilteredPrompts(results);
@@ -27,14 +28,14 @@ function App() {
       btn.style.background = "#10b981";
       setTimeout(() => {
         btn.innerText = originalText;
-        btn.style.background = ""; // Vuelve al estilo CSS original
+        btn.style.background = ""; 
       }, 2000);
     }
   };
 
   return (
     <>
-      <a href="https://contador4-0-master.vercel.app/" className="back-btn">
+      <a href="https://contador4-0-master.vercel.app/" className="back-to-hub">
         <span>🏠</span> Volver al HUB
       </a>
 
@@ -64,6 +65,7 @@ function App() {
                   <h3 className="prompt-title">{prompt.nombre}</h3>
                   <div className="meta-tags">
                     {prompt.frecuencia && <span className="badge">{prompt.frecuencia}</span>}
+                    {prompt.cuando && <small>📅 {prompt.cuando}</small>}
                   </div>
                 </div>
                 
