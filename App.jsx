@@ -1,256 +1,121 @@
 import React, { useState, useEffect } from 'react';
-import promptsDataList from './data/prompts_data_complete.json'; // Asegúrate de que este archivo tenga la estructura anidada (Categorías)
+import promptsData from './data/prompts_data_complete.json'; // Tu archivo de datos
+import './styles.css'; // Los estilos nuevos
 
 function App() {
-  // Estados para la selección
-  const [categories, setCategories] = useState([]);
-  const [selectedCatIndex, setSelectedCatIndex] = useState('');
-  const [selectedSubIndex, setSelectedSubIndex] = useState('');
-  const [selectedPromptIndex, setSelectedPromptIndex] = useState('');
-  
-  // Estados para el prompt y variables
-  const [currentPromptTemplate, setCurrentPromptTemplate] = useState('');
-  const [dynamicInputs, setDynamicInputs] = useState({});
-  const [generatedPrompt, setGeneratedPrompt] = useState('');
-  
-  // Estado para UI
-  const [copyStatus, setCopyStatus] = useState('Copiar Prompt');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredPrompts, setFilteredPrompts] = useState(promptsData);
 
-  // 1. Cargar Categorías al inicio
+  // Efecto de búsqueda
   useEffect(() => {
-    // Asumimos que promptsDataList es el array de categorías que usabas en el código anterior
-    setCategories(promptsDataList);
-  }, []);
+    const term = searchTerm.toLowerCase();
+    const results = promptsData.filter(prompt => 
+      prompt.nombre.toLowerCase().includes(term) ||
+      prompt.contenido.toLowerCase().includes(term) ||
+      (prompt.cuando && prompt.cuando.toLowerCase().includes(term))
+    );
+    setFilteredPrompts(results);
+  }, [searchTerm]);
 
-  // 2. Manejar cambio de Categoría
-  const handleCategoryChange = (e) => {
-    const index = e.target.value;
-    setSelectedCatIndex(index);
-    setSelectedSubIndex('');
-    setSelectedPromptIndex('');
-    setCurrentPromptTemplate('');
-    setGeneratedPrompt('');
-    setDynamicInputs({});
-  };
-
-  // 3. Manejar cambio de Subcategoría
-  const handleSubcatChange = (e) => {
-    const index = e.target.value;
-    setSelectedSubIndex(index);
-    setSelectedPromptIndex('');
-    setCurrentPromptTemplate('');
-    setGeneratedPrompt('');
-    setDynamicInputs({});
-  };
-
-  // 4. Manejar selección de Prompt
-  const handlePromptChange = (e) => {
-    const index = e.target.value;
-    setSelectedPromptIndex(index);
-    
-    if (index !== '') {
-      const promptText = categories[selectedCatIndex]
-        .subcategories[selectedSubIndex]
-        .prompts[index].prompt;
-        
-      setCurrentPromptTemplate(promptText);
-      extractVariables(promptText);
-      setGeneratedPrompt('');
+  // Función Copiar
+  const handleCopy = (text, index) => {
+    navigator.clipboard.writeText(text);
+    const btn = document.getElementById(`copy-btn-${index}`);
+    if (btn) {
+      const originalText = btn.innerText;
+      btn.innerText = "✅ ¡Copiado!";
+      btn.style.background = "#10b981";
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = ""; // Vuelve al estilo CSS original
+      }, 2000);
     }
   };
 
-  // 5. Extraer variables [entre corchetes]
-  const extractVariables = (text) => {
-    const regex = /\[([^\]]+)\]/g;
-    const matches = [...new Set(text.match(regex) || [])];
-    
-    const newInputs = {};
-    matches.forEach(match => {
-      newInputs[match] = ''; // Inicializar vacío
-    });
-    setDynamicInputs(newInputs);
-  };
-
-  // 6. Manejar cambios en los inputs dinámicos
-  const handleInputChange = (variable, value) => {
-    setDynamicInputs(prev => ({
-      ...prev,
-      [variable]: value
-    }));
-  };
-
-  // 7. Generar Prompt Final
-  const handleGenerate = () => {
-    let finalText = currentPromptTemplate;
-    
-    Object.keys(dynamicInputs).forEach(key => {
-      const value = dynamicInputs[key].trim();
-      // Si el usuario escribió algo, reemplazar. Si no, dejar el placeholder original o quitar corchetes.
-      const replacement = value !== '' ? value : key; 
-      // Escapar corchetes para el replace global
-      const safeKey = key.replace(/\[/g, '\\[').replace(/\]/g, '\\]');
-      const regex = new RegExp(safeKey, 'g');
-      finalText = finalText.replace(regex, replacement);
-    });
-
-    setGeneratedPrompt(finalText);
-  };
-
-  // 8. Copiar al portapapeles
-  const handleCopy = () => {
-    navigator.clipboard.writeText(generatedPrompt);
-    setCopyStatus('¡Copiado! 👍');
-    setTimeout(() => setCopyStatus('Copiar Prompt'), 2000);
-  };
-
-  // 9. Ejecutar en IA
-  const handleExecute = (url) => {
-    navigator.clipboard.writeText(generatedPrompt);
-    window.open(url, '_blank');
-  };
-
-  // Helper para resaltar corchetes en la vista previa
-  const renderHighlightedPreview = (text) => {
-    if (!text) return 'Selecciona una tarea para ver la plantilla...';
-    
-    const parts = text.split(/(\[[^\]]+\])/g);
-    return parts.map((part, index) => 
-      part.match(/^\[[^\]]+\]$/) 
-        ? <span key={index} className="bracket-highlight">{part}</span> 
-        : part
-    );
-  };
-
   return (
-    <div className="app-wrapper">
-      
-      {/* Botón Volver */}
-      <a href="https://contador4-0-master.vercel.app/" className="back-to-hub">
+    <>
+      <a href="https://contador4-0-master.vercel.app/" className="back-btn">
         <span>🏠</span> Volver al HUB
       </a>
 
-      <div className="console-container">
+      <div className="app-container">
         
-        {/* Header */}
-        <div className="header-section">
-          <img src="https://jairoamaya.co/wp-content/uploads/2025/12/Icono-contador-4.0.jpg" alt="Logo" className="app-logo" />
-          <h1>Contador 4.0 Express</h1>
-          <p style={{color: '#94a3b8'}}>Generador de Prompts de Alta Ingeniería</p>
+        <header className="header">
+          <span className="flag-icon">🇲🇽</span>
+          <h1>Asistente Tributario SAT</h1>
+          <p>Biblioteca de Prompts Especializados | Contador 4.0</p>
+        </header>
+
+        <div className="search-container">
+          <input 
+            type="text" 
+            className="search-input" 
+            placeholder="🔍 Busca por tema (ej: Resico, CFDI, Deducciones)..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
-        {/* Selectores */}
-        <div className="form-group">
-          <label>Categoría</label>
-          <select value={selectedCatIndex} onChange={handleCategoryChange}>
-            <option value="">-- Selecciona una Categoría --</option>
-            {categories.map((cat, index) => (
-              <option key={index} value={index}>{cat.title}</option>
-            ))}
-          </select>
-        </div>
+        <div className="prompts-grid">
+          {filteredPrompts.length > 0 ? (
+            filteredPrompts.map((prompt, index) => (
+              <div key={index} className="prompt-card">
+                <div className="card-header">
+                  <h3 className="prompt-title">{prompt.nombre}</h3>
+                  <div className="meta-tags">
+                    {prompt.frecuencia && <span className="badge">{prompt.frecuencia}</span>}
+                  </div>
+                </div>
+                
+                <div className="prompt-content">
+                  {prompt.contenido}
+                </div>
 
-        <div className="form-group">
-          <label>Subcategoría</label>
-          <select value={selectedSubIndex} onChange={handleSubcatChange} disabled={selectedCatIndex === ''}>
-            <option value="">-- Selecciona una Subcategoría --</option>
-            {selectedCatIndex !== '' && categories[selectedCatIndex].subcategories.map((sub, index) => (
-              <option key={index} value={index}>{sub.title}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label>Prompt / Tarea</label>
-          <select value={selectedPromptIndex} onChange={handlePromptChange} disabled={selectedSubIndex === ''}>
-            <option value="">-- Selecciona el Prompt --</option>
-            {selectedSubIndex !== '' && categories[selectedCatIndex].subcategories[selectedSubIndex].prompts.map((p, index) => (
-              <option key={index} value={index}>{p.title}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Preview */}
-        <div className="form-group">
-          <label>Plantilla del Prompt</label>
-          <div className="preview-box">
-            {renderHighlightedPreview(currentPromptTemplate)}
-          </div>
-        </div>
-
-        {/* Inputs Dinámicos */}
-        {Object.keys(dynamicInputs).length > 0 && (
-          <div className="dynamic-inputs-area">
-            <div className="tip-box" style={{background: 'rgba(251, 191, 36, 0.1)', padding: '10px', borderRadius: '5px', color: '#fbbf24', fontSize: '0.9em', marginBottom: '10px'}}>
-              💡 <strong>Personaliza:</strong> Rellena los datos para adaptar el prompt.
-            </div>
-            {Object.keys(dynamicInputs).map((key) => (
-              <div key={key} className="form-group">
-                <label>{key.replace('[', '').replace(']', '')}</label>
-                <input 
-                  type="text" 
-                  placeholder={`Ingresa: ${key}`}
-                  value={dynamicInputs[key]}
-                  onChange={(e) => handleInputChange(key, e.target.value)}
-                />
+                <div className="actions">
+                  <button 
+                    id={`copy-btn-${index}`}
+                    className="btn btn-copy" 
+                    onClick={() => handleCopy(prompt.contenido, index)}
+                  >
+                    📋 Copiar Prompt
+                  </button>
+                  
+                  <a href="https://chat.openai.com/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                    🟢 ChatGPT
+                  </a>
+                  <a href="https://claude.ai/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                    🟠 Claude
+                  </a>
+                  <a href="https://gemini.google.com/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                    🔵 Gemini
+                  </a>
+                </div>
               </div>
-            ))}
-          </div>
-        )}
-
-        {/* Botón Generar */}
-        <button 
-          className="btn-primary" 
-          onClick={handleGenerate}
-          disabled={!currentPromptTemplate}
-        >
-          ✨ Generar Prompt
-        </button>
-
-        {/* Resultado */}
-        {generatedPrompt && (
-          <div className="result-area">
-            <div className="result-box">
-              <div className="result-content">{generatedPrompt}</div>
+            ))
+          ) : (
+            <div style={{textAlign: 'center', padding: '40px', color: '#94a3b8'}}>
+              No se encontraron prompts con ese término.
             </div>
-            
-            <button className="btn-copy" onClick={handleCopy}>
-              {copyStatus}
-            </button>
-
-            <div className="ai-buttons-grid">
-              <button className="btn-ai" onClick={() => handleExecute('https://chat.openai.com/')}>
-                🟢 ChatGPT
-              </button>
-              <button className="btn-ai" onClick={() => handleExecute('https://claude.ai/')}>
-                🟠 Claude
-              </button>
-              <button className="btn-ai" onClick={() => handleExecute('https://gemini.google.com/')}>
-                🔵 Gemini
-              </button>
-            </div>
-          </div>
-        )}
-
+          )}
+        </div>
       </div>
 
-      {/* Footer */}
       <div className="footer-wrapper">
-        <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Personaje" className="floating-character" />
-        <footer className="app-footer">
+        <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente" className="floating-char" />
+        <footer className="main-footer">
           <div className="footer-links">
             <a href="https://jairoamaya.co" target="_blank">Sitio Web</a> •
             <a href="https://linkedin.com/in/jairoamaya" target="_blank">LinkedIn</a> •
             <a href="mailto:hola@jairoamaya.co">Contacto</a>
           </div>
-          <div className="footer-branding">
+          <div style={{color: '#9ca3af', fontSize: '0.9em'}}>
             <p><strong>Contador 4.0 Suite</strong></p>
-            <p>Herramienta de productividad diseñada por <a href="https://jairoamaya.co" style={{color:'#a8b3ff', textDecoration:'underline'}}>Jairo Amaya</a></p>
+            <p>Herramienta de productividad diseñada por Jairo Amaya</p>
+            <p style={{marginTop: '15px', opacity: 0.6}}>© 2025 Todos los derechos reservados.</p>
           </div>
-          <p style={{opacity: 0.6, fontSize: '0.8rem', marginTop: '20px'}}>© 2025 Todos los derechos reservados.</p>
         </footer>
       </div>
-
-    </div>
+    </>
   );
 }
 
