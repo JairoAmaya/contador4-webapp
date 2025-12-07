@@ -1,158 +1,257 @@
-import React, { useState, useMemo } from 'react'
-import './styles.css'
-import promptsData from './data/prompts_data_complete.json'
+import React, { useState, useEffect } from 'react';
+import promptsDataList from './data/prompts_data_complete.json'; // Asegúrate de que este archivo tenga la estructura anidada (Categorías)
 
-export default function App() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedFrequency, setSelectedFrequency] = useState('all')
-  const [expandedPrompts, setExpandedPrompts] = useState({})
-  const [copiedPrompts, setCopiedPrompts] = useState({})
+function App() {
+  // Estados para la selección
+  const [categories, setCategories] = useState([]);
+  const [selectedCatIndex, setSelectedCatIndex] = useState('');
+  const [selectedSubIndex, setSelectedSubIndex] = useState('');
+  const [selectedPromptIndex, setSelectedPromptIndex] = useState('');
+  
+  // Estados para el prompt y variables
+  const [currentPromptTemplate, setCurrentPromptTemplate] = useState('');
+  const [dynamicInputs, setDynamicInputs] = useState({});
+  const [generatedPrompt, setGeneratedPrompt] = useState('');
+  
+  // Estado para UI
+  const [copyStatus, setCopyStatus] = useState('Copiar Prompt');
 
-  // Extraer frecuencias únicas
-  const frequencies = useMemo(() => {
-    const freqs = [...new Set(promptsData.map(p => p.frecuencia))]
-    return ['all', ...freqs]
-  }, [])
+  // 1. Cargar Categorías al inicio
+  useEffect(() => {
+    // Asumimos que promptsDataList es el array de categorías que usabas en el código anterior
+    setCategories(promptsDataList);
+  }, []);
 
-  // Filtrar prompts
-  const filteredPrompts = useMemo(() => {
-    return promptsData.filter(prompt => {
-      const matchesSearch = prompt.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           prompt.contenido.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesFrequency = selectedFrequency === 'all' || prompt.frecuencia === selectedFrequency
-      return matchesSearch && matchesFrequency
-    })
-  }, [searchTerm, selectedFrequency])
+  // 2. Manejar cambio de Categoría
+  const handleCategoryChange = (e) => {
+    const index = e.target.value;
+    setSelectedCatIndex(index);
+    setSelectedSubIndex('');
+    setSelectedPromptIndex('');
+    setCurrentPromptTemplate('');
+    setGeneratedPrompt('');
+    setDynamicInputs({});
+  };
 
-  const togglePrompt = (index) => {
-    setExpandedPrompts(prev => ({
+  // 3. Manejar cambio de Subcategoría
+  const handleSubcatChange = (e) => {
+    const index = e.target.value;
+    setSelectedSubIndex(index);
+    setSelectedPromptIndex('');
+    setCurrentPromptTemplate('');
+    setGeneratedPrompt('');
+    setDynamicInputs({});
+  };
+
+  // 4. Manejar selección de Prompt
+  const handlePromptChange = (e) => {
+    const index = e.target.value;
+    setSelectedPromptIndex(index);
+    
+    if (index !== '') {
+      const promptText = categories[selectedCatIndex]
+        .subcategories[selectedSubIndex]
+        .prompts[index].prompt;
+        
+      setCurrentPromptTemplate(promptText);
+      extractVariables(promptText);
+      setGeneratedPrompt('');
+    }
+  };
+
+  // 5. Extraer variables [entre corchetes]
+  const extractVariables = (text) => {
+    const regex = /\[([^\]]+)\]/g;
+    const matches = [...new Set(text.match(regex) || [])];
+    
+    const newInputs = {};
+    matches.forEach(match => {
+      newInputs[match] = ''; // Inicializar vacío
+    });
+    setDynamicInputs(newInputs);
+  };
+
+  // 6. Manejar cambios en los inputs dinámicos
+  const handleInputChange = (variable, value) => {
+    setDynamicInputs(prev => ({
       ...prev,
-      [index]: !prev[index]
-    }))
-  }
+      [variable]: value
+    }));
+  };
 
-  const copyPrompt = (content, index) => {
-    navigator.clipboard.writeText(content)
-    setCopiedPrompts(prev => ({ ...prev, [index]: true }))
-    setTimeout(() => {
-      setCopiedPrompts(prev => ({ ...prev, [index]: false }))
-    }, 2000)
-  }
+  // 7. Generar Prompt Final
+  const handleGenerate = () => {
+    let finalText = currentPromptTemplate;
+    
+    Object.keys(dynamicInputs).forEach(key => {
+      const value = dynamicInputs[key].trim();
+      // Si el usuario escribió algo, reemplazar. Si no, dejar el placeholder original o quitar corchetes.
+      const replacement = value !== '' ? value : key; 
+      // Escapar corchetes para el replace global
+      const safeKey = key.replace(/\[/g, '\\[').replace(/\]/g, '\\]');
+      const regex = new RegExp(safeKey, 'g');
+      finalText = finalText.replace(regex, replacement);
+    });
+
+    setGeneratedPrompt(finalText);
+  };
+
+  // 8. Copiar al portapapeles
+  const handleCopy = () => {
+    navigator.clipboard.writeText(generatedPrompt);
+    setCopyStatus('¡Copiado! 👍');
+    setTimeout(() => setCopyStatus('Copiar Prompt'), 2000);
+  };
+
+  // 9. Ejecutar en IA
+  const handleExecute = (url) => {
+    navigator.clipboard.writeText(generatedPrompt);
+    window.open(url, '_blank');
+  };
+
+  // Helper para resaltar corchetes en la vista previa
+  const renderHighlightedPreview = (text) => {
+    if (!text) return 'Selecciona una tarea para ver la plantilla...';
+    
+    const parts = text.split(/(\[[^\]]+\])/g);
+    return parts.map((part, index) => 
+      part.match(/^\[[^\]]+\]$/) 
+        ? <span key={index} className="bracket-highlight">{part}</span> 
+        : part
+    );
+  };
 
   return (
-    <div className="app-container">
-      {/* Header */}
-      <header className="header">
-        <div className="header-icon">📊</div>
-        <div className="header-text">
-          <h1>Contador 4.0</h1>
-          <p>Sistema de Transformación con IA para Contadores</p>
+    <div className="app-wrapper">
+      
+      {/* Botón Volver */}
+      <a href="https://contador4-0-master.vercel.app/" className="back-to-hub">
+        <span>🏠</span> Volver al HUB
+      </a>
+
+      <div className="console-container">
+        
+        {/* Header */}
+        <div className="header-section">
+          <img src="https://jairoamaya.co/wp-content/uploads/2025/12/Icono-contador-4.0.jpg" alt="Logo" className="app-logo" />
+          <h1>Contador 4.0 Express</h1>
+          <p style={{color: '#94a3b8'}}>Generador de Prompts de Alta Ingeniería</p>
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className="main-content">
-        <div className="section-header">
-          <h2>Biblioteca de Prompts ({promptsData.length} prompts profesionales)</h2>
-          
-          {/* Search Bar */}
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="🔍 Buscar prompts..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
+        {/* Selectores */}
+        <div className="form-group">
+          <label>Categoría</label>
+          <select value={selectedCatIndex} onChange={handleCategoryChange}>
+            <option value="">-- Selecciona una Categoría --</option>
+            {categories.map((cat, index) => (
+              <option key={index} value={index}>{cat.title}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Subcategoría</label>
+          <select value={selectedSubIndex} onChange={handleSubcatChange} disabled={selectedCatIndex === ''}>
+            <option value="">-- Selecciona una Subcategoría --</option>
+            {selectedCatIndex !== '' && categories[selectedCatIndex].subcategories.map((sub, index) => (
+              <option key={index} value={index}>{sub.title}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Prompt / Tarea</label>
+          <select value={selectedPromptIndex} onChange={handlePromptChange} disabled={selectedSubIndex === ''}>
+            <option value="">-- Selecciona el Prompt --</option>
+            {selectedSubIndex !== '' && categories[selectedCatIndex].subcategories[selectedSubIndex].prompts.map((p, index) => (
+              <option key={index} value={index}>{p.title}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Preview */}
+        <div className="form-group">
+          <label>Plantilla del Prompt</label>
+          <div className="preview-box">
+            {renderHighlightedPreview(currentPromptTemplate)}
           </div>
+        </div>
 
-          {/* Frequency Filter */}
-          <div className="filter-section">
-            <label className="filter-label">Filtrar por frecuencia:</label>
-            <div className="frequency-filters">
-              {frequencies.map(freq => (
-                <button
-                  key={freq}
-                  className={`filter-btn ${selectedFrequency === freq ? 'active' : ''}`}
-                  onClick={() => setSelectedFrequency(freq)}
-                >
-                  {freq === 'all' ? 'Todos' : freq}
-                </button>
-              ))}
+        {/* Inputs Dinámicos */}
+        {Object.keys(dynamicInputs).length > 0 && (
+          <div className="dynamic-inputs-area">
+            <div className="tip-box" style={{background: 'rgba(251, 191, 36, 0.1)', padding: '10px', borderRadius: '5px', color: '#fbbf24', fontSize: '0.9em', marginBottom: '10px'}}>
+              💡 <strong>Personaliza:</strong> Rellena los datos para adaptar el prompt.
             </div>
-          </div>
-        </div>
-
-        {/* Results Count */}
-        <div className="results-info">
-          Mostrando {filteredPrompts.length} de {promptsData.length} prompts
-        </div>
-
-        {/* Prompts List */}
-        <div className="prompts-container">
-          {filteredPrompts.map((prompt, index) => (
-            <div key={index} className="prompt-card">
-              <div 
-                className="prompt-card-header"
-                onClick={() => togglePrompt(index)}
-              >
-                <div className="prompt-card-title">
-                  <h3>{prompt.nombre}</h3>
-                  <div className="prompt-metadata">
-                    <span className="badge badge-frequency">{prompt.frecuencia}</span>
-                    <span className="badge badge-when">📅 {prompt.cuando}</span>
-                  </div>
-                </div>
-                <div className={`expand-icon ${expandedPrompts[index] ? 'expanded' : ''}`}>
-                  ▼
-                </div>
+            {Object.keys(dynamicInputs).map((key) => (
+              <div key={key} className="form-group">
+                <label>{key.replace('[', '').replace(']', '')}</label>
+                <input 
+                  type="text" 
+                  placeholder={`Ingresa: ${key}`}
+                  value={dynamicInputs[key]}
+                  onChange={(e) => handleInputChange(key, e.target.value)}
+                />
               </div>
-
-              {expandedPrompts[index] && (
-                <div className="prompt-card-content">
-                  <div className="prompt-text">
-                    {prompt.contenido}
-                  </div>
-                  <button
-                    className={`copy-button ${copiedPrompts[index] ? 'copied' : ''}`}
-                    onClick={() => copyPrompt(prompt.contenido, index)}
-                  >
-                    {copiedPrompts[index] ? '✓ Copiado' : '📋 Copiar prompt'}
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* No Results */}
-        {filteredPrompts.length === 0 && (
-          <div className="no-results">
-            <p>No se encontraron prompts que coincidan con tu búsqueda.</p>
-            <button 
-              className="reset-btn"
-              onClick={() => {
-                setSearchTerm('')
-                setSelectedFrequency('all')
-              }}
-            >
-              Limpiar filtros
-            </button>
+            ))}
           </div>
         )}
 
-        {/* Tips Section */}
-        <div className="tips-section">
-          <h3>💡 Consejos para usar los prompts</h3>
-          <ul>
-            <li>Usa la información de <strong>"Cuándo usar"</strong> para saber el contexto ideal</li>
-            <li>La <strong>frecuencia</strong> te indica qué tan seguido deberías aplicar el prompt</li>
-            <li>Personaliza el contenido según las necesidades específicas de tu cliente</li>
-            <li>Usa <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> para análisis más profundos</li>
-            <li>Combina múltiples prompts para casos complejos</li>
-          </ul>
-        </div>
-      </main>
+        {/* Botón Generar */}
+        <button 
+          className="btn-primary" 
+          onClick={handleGenerate}
+          disabled={!currentPromptTemplate}
+        >
+          ✨ Generar Prompt
+        </button>
+
+        {/* Resultado */}
+        {generatedPrompt && (
+          <div className="result-area">
+            <div className="result-box">
+              <div className="result-content">{generatedPrompt}</div>
+            </div>
+            
+            <button className="btn-copy" onClick={handleCopy}>
+              {copyStatus}
+            </button>
+
+            <div className="ai-buttons-grid">
+              <button className="btn-ai" onClick={() => handleExecute('https://chat.openai.com/')}>
+                🟢 ChatGPT
+              </button>
+              <button className="btn-ai" onClick={() => handleExecute('https://claude.ai/')}>
+                🟠 Claude
+              </button>
+              <button className="btn-ai" onClick={() => handleExecute('https://gemini.google.com/')}>
+                🔵 Gemini
+              </button>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      {/* Footer */}
+      <div className="footer-wrapper">
+        <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Personaje" className="floating-character" />
+        <footer className="app-footer">
+          <div className="footer-links">
+            <a href="https://jairoamaya.co" target="_blank">Sitio Web</a> •
+            <a href="https://linkedin.com/in/jairoamaya" target="_blank">LinkedIn</a> •
+            <a href="mailto:hola@jairoamaya.co">Contacto</a>
+          </div>
+          <div className="footer-branding">
+            <p><strong>Contador 4.0 Suite</strong></p>
+            <p>Herramienta de productividad diseñada por <a href="https://jairoamaya.co" style={{color:'#a8b3ff', textDecoration:'underline'}}>Jairo Amaya</a></p>
+          </div>
+          <p style={{opacity: 0.6, fontSize: '0.8rem', marginTop: '20px'}}>© 2025 Todos los derechos reservados.</p>
+        </footer>
+      </div>
+
     </div>
-  )
+  );
 }
+
+export default App;
