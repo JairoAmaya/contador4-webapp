@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- DISEÑO DARK MODE --- */
+        /* --- ESTILOS VISUALES --- */
         :root {
             --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --card-bg: rgba(30, 41, 59, 0.6);
@@ -19,19 +19,19 @@
             --text-muted: #94a3b8;
             
             /* Colores Categorías SAT */
-            --cat-factura: #3b82f6;      /* Azul */
-            --cat-declaracion: #10b981;  /* Verde */
-            --cat-contabilidad: #f59e0b; /* Naranja */
-            --cat-precios: #8b5cf6;      /* Violeta */
-            --cat-optimizacion: #eab308; /* Amarillo */
-            --cat-defensa: #ef4444;      /* Rojo */
+            --cat-factura: #3b82f6;
+            --cat-declaracion: #10b981;
+            --cat-contabilidad: #f59e0b;
+            --cat-precios: #8b5cf6;
+            --cat-optimizacion: #eab308;
+            --cat-defensa: #ef4444;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             font-family: 'Lato', sans-serif; background: var(--bg-dark); color: var(--text);
-            min-height: 100vh; padding-bottom: 60px; display: flex; flex-direction: column;
+            min-height: 100vh; padding-bottom: 0; display: flex; flex-direction: column;
         }
 
         /* Botón Volver */
@@ -47,7 +47,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px 40px; flex: 1; width: 100%; }
 
-        /* Header */
+        /* Header con Bandera */
         .header { text-align: center; margin-bottom: 50px; }
         .header h1 {
             font-family: 'Poppins', sans-serif; font-size: 2.8rem; margin-bottom: 10px;
@@ -57,7 +57,7 @@
         .flag { font-size: 2.5rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
         .header p { color: var(--text-muted); font-size: 1.1rem; letter-spacing: 0.5px; }
 
-        /* Sección de Consejos */
+        /* Sección de Consejos (Diseño Premium Ajustado) */
         .tips-container {
             background: rgba(15, 23, 42, 0.4); border: var(--border); border-radius: 16px;
             padding: 30px; margin-bottom: 50px; max-width: 1000px; margin-left: auto; margin-right: auto;
@@ -67,7 +67,9 @@
             font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px;
             display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;
         }
-        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .tips-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+        }
         .tip-item { display: flex; gap: 12px; align-items: flex-start; }
         .tip-icon {
             background: rgba(59, 130, 246, 0.1); color: var(--accent); width: 32px; height: 32px;
@@ -77,8 +79,10 @@
         .tip-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
         .tip-text strong { color: #e2e8f0; font-weight: 600; }
 
-        /* Filtros */
-        .category-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 40px; }
+        /* Filtros de Categoría */
+        .category-filters {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 40px;
+        }
         .cat-btn {
             background: transparent; border: 1px solid var(--border-color);
             color: var(--text-muted); padding: 10px 20px; border-radius: 50px; cursor: pointer;
@@ -88,12 +92,12 @@
         .cat-btn:hover { background: rgba(255,255,255,0.05); color: white; transform: translateY(-2px); }
         .cat-btn.active { background: white; color: #0f172a; border-color: white; font-weight: 700; box-shadow: 0 0 15px rgba(255,255,255,0.1); }
         
-        .cat-btn[data-cat="Facturación Electrónica CFDI"].active { background: var(--cat-factura); color: white; border-color: var(--cat-factura); }
-        .cat-btn[data-cat="Declaraciones y Obligaciones"].active { background: var(--cat-declaracion); color: white; border-color: var(--cat-declaracion); }
-        .cat-btn[data-cat="Contabilidad Electrónica"].active { background: var(--cat-contabilidad); color: white; border-color: var(--cat-contabilidad); }
-        .cat-btn[data-cat="Precios de Transferencia"].active { background: var(--cat-precios); color: white; border-color: var(--cat-precios); }
-        .cat-btn[data-cat="Optimización Fiscal"].active { background: var(--cat-optimizacion); color: white; border-color: var(--cat-optimizacion); }
-        .cat-btn[data-cat="Controversias y Defensa"].active { background: var(--cat-defensa); color: white; border-color: var(--cat-defensa); }
+        .cat-btn[data-cat="Facturación Electrónica CFDI"].active { background: var(--cat-factura); color: white; border-color: var(--cat-factura); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+        .cat-btn[data-cat="Declaraciones y Obligaciones"].active { background: var(--cat-declaracion); color: white; border-color: var(--cat-declaracion); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+        .cat-btn[data-cat="Contabilidad Electrónica"].active { background: var(--cat-contabilidad); color: white; border-color: var(--cat-contabilidad); box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
+        .cat-btn[data-cat="Precios de Transferencia"].active { background: var(--cat-precios); color: white; border-color: var(--cat-precios); box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
+        .cat-btn[data-cat="Optimización Fiscal"].active { background: var(--cat-optimizacion); color: white; border-color: var(--cat-optimizacion); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
+        .cat-btn[data-cat="Controversias y Defensa"].active { background: var(--cat-defensa); color: white; border-color: var(--cat-defensa); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
 
         /* Buscador */
         .search-box { width: 100%; max-width: 650px; margin: 0 auto 50px; position: relative; }
@@ -124,7 +128,7 @@
         .input-group { margin-bottom: 12px; }
         .input-group:last-child { margin-bottom: 0; }
         .input-group label { display: block; font-size: 0.8rem; color: #fbbf24; margin-bottom: 6px; font-weight: 700; }
-        .input-group input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px; border-radius: 8px; font-size: 0.95rem; }
+        .input-group input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s; }
         .input-group input:focus { outline: none; border-color: #fbbf24; background: rgba(255,255,255,0.08); }
 
         .prompt-preview {
@@ -154,17 +158,20 @@
         .page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
         .nav-btn { width: auto; padding: 0 20px; border-radius: 50px; }
 
-        /* Footer */
-        .footer-wrapper { position: relative; width: 100%; margin-top: auto; }
+        /* FOOTER (Ajuste de Margen) */
+        .footer-wrapper { position: relative; width: 100%; margin-top: 150px; /* Separación crítica del contenido */ }
+        
         .bp-floating-character {
             position: absolute; bottom: 85%; left: 50%; width: 220px; height: auto;
             z-index: 0; pointer-events: none; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
             animation: float-center 6s ease-in-out infinite; transform: translateX(-50%);
         }
         @keyframes float-center { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -20px); } 100% { transform: translate(-50%, 0px); } }
+        
         .bp-footer {
             text-align: center; padding: 100px 20px 50px; border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(20px); font-size: 0.9em; color: #8da2fb; position: relative; z-index: 5;
+            background: rgba(10, 10, 20, 0.95); backdrop-filter: blur(20px);
+            font-size: 0.9em; color: #8da2fb; position: relative; z-index: 5;
         }
         .bp-footer a { color: #a8b3ff; text-decoration: none; font-weight: 600; transition: color 0.2s; }
         .bp-footer a:hover { color: white; text-decoration: underline; }
@@ -193,12 +200,35 @@
         </header>
 
         <div class="tips-container">
-            <div class="tips-title"><span>💡</span><span>Consejos para usar los prompts SAT</span></div>
+            <div class="tips-title">
+                <span>💡</span>
+                <span>Consejos para usar los prompts SAT</span>
+            </div>
             <div class="tips-grid">
-                <div class="tip-item"><div class="tip-icon">🇲🇽</div><div class="tip-text">Especializados para <strong>México</strong>: Referencias a Anexos SAT, CFDI 4.0 y normativa vigente.</div></div>
-                <div class="tip-item"><div class="tip-icon">📝</div><div class="tip-text">Rellena las <strong>[VARIABLES]</strong> en los campos de cada tarjeta para personalizar el prompt.</div></div>
-                <div class="tip-item"><div class="tip-icon">🤖</div><div class="tip-text">Usa <strong>Claude 3</strong> o <strong>ChatGPT-4</strong> para obtener las respuestas más precisas.</div></div>
-                <div class="tip-item"><div class="tip-icon">🧩</div><div class="tip-text">Para casos complejos, <strong>combina prompts</strong> (ej: CFDI + Complemento de Pagos).</div></div>
+                <div class="tip-item">
+                    <div class="tip-icon">🇲🇽</div>
+                    <div class="tip-text">Especializados para <strong>México</strong>: Referencias a Anexos SAT, CFDI 4.0 y normativa vigente.</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">📝</div>
+                    <div class="tip-text">Rellena las <strong>[VARIABLES]</strong> en los campos de cada tarjeta para personalizar el prompt.</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🤖</div>
+                    <div class="tip-text">Usa <strong>Claude 3</strong> o <strong>ChatGPT-4</strong> para obtener las respuestas más precisas.</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">🧩</div>
+                    <div class="tip-text">Para casos complejos, <strong>combina prompts</strong> (ej: CFDI + Complemento de Pagos).</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">📚</div>
+                    <div class="tip-text">Mantén actualizada tu referencia a <strong>Anexos 20 y 24</strong> del SAT.</div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon">💎</div>
+                    <div class="tip-text">Los prompts de <strong>Precios de Transferencia</strong> son únicos de este pack.</div>
+                </div>
             </div>
         </div>
 
@@ -217,7 +247,6 @@
         </div>
 
         <div id="gridContainer" class="grid"></div>
-        
         <div id="pagination" class="pagination"></div>
     </div>
 
@@ -288,7 +317,7 @@
         let currentCategory = 'all';
         let searchTerm = '';
         let currentPage = 1;
-        const itemsPerPage = 6; // PAGINACIÓN ACTIVADA
+        const itemsPerPage = 6;
 
         const container = document.getElementById('gridContainer');
         const paginationContainer = document.getElementById('pagination');
@@ -306,13 +335,13 @@
 
             // 2. Paginar
             const totalPages = Math.ceil(filtered.length / itemsPerPage);
-            if (currentPage > totalPages) currentPage = 1; // Reset si filtra
+            if (currentPage > totalPages) currentPage = 1;
             
             const start = (currentPage - 1) * itemsPerPage;
             const end = start + itemsPerPage;
             const paginatedItems = filtered.slice(start, end);
 
-            // 3. Renderizar Tarjetas
+            // 3. Renderizar
             if(paginatedItems.length === 0) {
                 container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados.</div>';
                 paginationContainer.innerHTML = '';
@@ -320,8 +349,6 @@
             }
 
             paginatedItems.forEach((item, index) => {
-                // El index aquí es relativo a la página. Necesitamos un ID único.
-                // Usaremos un ID generado al vuelo.
                 const uniqueId = `prompt-${start + index}`;
                 const card = document.createElement('div');
                 card.className = 'card';
@@ -377,15 +404,14 @@
             renderPagination(totalPages);
         }
 
-        // Renderizar Controles de Paginación
         function renderPagination(totalPages) {
             paginationContainer.innerHTML = '';
             if (totalPages <= 1) return;
 
-            // Botón Anterior
+            // Anterior
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn nav-btn';
-            prevBtn.innerText = '← Anterior';
+            prevBtn.innerText = '←';
             prevBtn.disabled = currentPage === 1;
             prevBtn.onclick = () => changePage(currentPage - 1);
             paginationContainer.appendChild(prevBtn);
@@ -399,10 +425,10 @@
                 paginationContainer.appendChild(btn);
             }
 
-            // Botón Siguiente
+            // Siguiente
             const nextBtn = document.createElement('button');
             nextBtn.className = 'page-btn nav-btn';
-            nextBtn.innerText = 'Siguiente →';
+            nextBtn.innerText = '→';
             nextBtn.disabled = currentPage === totalPages;
             nextBtn.onclick = () => changePage(currentPage + 1);
             paginationContainer.appendChild(nextBtn);
@@ -411,7 +437,7 @@
         function changePage(page) {
             currentPage = page;
             renderCards();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 300, behavior: 'smooth' });
         }
 
         function filterCategory(cat, btn) {
