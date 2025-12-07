@@ -1,158 +1,133 @@
-import React, { useState, useMemo } from 'react'
-import './styles.css'
-import promptsDataRaw from './src/data/prompts_data_complete.json';
+import React, { useState, useEffect } from 'react';
+// SOLUCIÓN: Ruta absoluta desde la raíz del proyecto
+import promptsDataRaw from '/src/data/prompts_data_complete.json'; 
+import './styles.css';
 
-export default function App() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedFrequency, setSelectedFrequency] = useState('all')
-  const [expandedPrompts, setExpandedPrompts] = useState({})
-  const [copiedPrompts, setCopiedPrompts] = useState({})
+function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredPrompts, setFilteredPrompts] = useState([]);
 
-  // Extraer frecuencias únicas
-  const frequencies = useMemo(() => {
-    const freqs = [...new Set(promptsData.map(p => p.frecuencia))]
-    return ['all', ...freqs]
-  }, [])
+  // Carga inicial y filtro de búsqueda
+  useEffect(() => {
+    // Si los datos no son un array, usamos un array vacío para evitar el error
+    const data = Array.isArray(promptsDataRaw) ? promptsDataRaw : [];
+    
+    const term = searchTerm.toLowerCase();
+    const results = data.filter(prompt => 
+      (prompt.nombre && prompt.nombre.toLowerCase().includes(term)) ||
+      (prompt.contenido && prompt.contenido.toLowerCase().includes(term)) ||
+      (prompt.cuando && prompt.cuando.toLowerCase().includes(term))
+    );
+    setFilteredPrompts(results);
+  }, [searchTerm]);
 
-  // Filtrar prompts
-  const filteredPrompts = useMemo(() => {
-    return promptsData.filter(prompt => {
-      const matchesSearch = prompt.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           prompt.contenido.toLowerCase().includes(searchTerm.toLowerCase())
-      const matchesFrequency = selectedFrequency === 'all' || prompt.frecuencia === selectedFrequency
-      return matchesSearch && matchesFrequency
-    })
-  }, [searchTerm, selectedFrequency])
-
-  const togglePrompt = (index) => {
-    setExpandedPrompts(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }))
-  }
-
-  const copyPrompt = (content, index) => {
-    navigator.clipboard.writeText(content)
-    setCopiedPrompts(prev => ({ ...prev, [index]: true }))
-    setTimeout(() => {
-      setCopiedPrompts(prev => ({ ...prev, [index]: false }))
-    }, 2000)
-  }
+  // Función para copiar el prompt
+  const handleCopy = (text, index) => {
+    navigator.clipboard.writeText(text);
+    const btn = document.getElementById(`copy-btn-${index}`);
+    if (btn) {
+      const originalText = btn.innerText;
+      btn.innerText = "✅ Copiado";
+      btn.style.background = "#10b981"; // Verde éxito
+      setTimeout(() => {
+        btn.innerText = "📋 Copiar Prompt";
+        btn.style.background = ""; 
+      }, 2000);
+    }
+  };
 
   return (
-    <div className="app-container">
-      {/* Header */}
-      <header className="header">
-        <div className="header-icon">📊</div>
-        <div className="header-text">
-          <h1>Contador 4.0</h1>
-          <p>Sistema de Transformación con IA para Contadores</p>
-        </div>
-      </header>
+    <div className="app-wrapper">
+      <a href="https://contador4-0-master.vercel.app/" className="back-to-hub">
+        <span>🏠</span> Volver al HUB
+      </a>
 
-      {/* Main Content */}
-      <main className="main-content">
-        <div className="section-header">
-          <h2>Biblioteca de Prompts ({promptsData.length} prompts profesionales)</h2>
-          
-          {/* Search Bar */}
-          <div className="search-bar">
-            <input
-              type="text"
-              placeholder="🔍 Buscar prompts..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-            />
-          </div>
+      <div className="app-container">
+        
+        {/* Header con Identidad SAT */}
+        <header className="header">
+          <span className="flag-icon">🇲🇽</span>
+          <h1>Asistente Tributario SAT</h1>
+          <p>Biblioteca de Prompts Especializados | Contador 4.0</p>
+        </header>
 
-          {/* Frequency Filter */}
-          <div className="filter-section">
-            <label className="filter-label">Filtrar por frecuencia:</label>
-            <div className="frequency-filters">
-              {frequencies.map(freq => (
-                <button
-                  key={freq}
-                  className={`filter-btn ${selectedFrequency === freq ? 'active' : ''}`}
-                  onClick={() => setSelectedFrequency(freq)}
-                >
-                  {freq === 'all' ? 'Todos' : freq}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Buscador Inteligente */}
+        <div className="search-container">
+          <input 
+            type="text" 
+            className="search-input" 
+            placeholder="🔍 Busca por tema (ej: Resico, CFDI, Deducciones)..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
-        {/* Results Count */}
-        <div className="results-info">
-          Mostrando {filteredPrompts.length} de {promptsData.length} prompts
-        </div>
-
-        {/* Prompts List */}
-        <div className="prompts-container">
-          {filteredPrompts.map((prompt, index) => (
-            <div key={index} className="prompt-card">
-              <div 
-                className="prompt-card-header"
-                onClick={() => togglePrompt(index)}
-              >
-                <div className="prompt-card-title">
-                  <h3>{prompt.nombre}</h3>
-                  <div className="prompt-metadata">
-                    <span className="badge badge-frequency">{prompt.frecuencia}</span>
-                    <span className="badge badge-when">📅 {prompt.cuando}</span>
+        {/* Grid de Resultados */}
+        <div className="prompts-grid">
+          {filteredPrompts.length > 0 ? (
+            filteredPrompts.map((prompt, index) => (
+              <div key={index} className="prompt-card">
+                <div className="card-header">
+                  <h3 className="prompt-title">{prompt.nombre}</h3>
+                  <div className="meta-tags">
+                    {prompt.frecuencia && <span className="badge frequency">{prompt.frecuencia}</span>}
+                    {prompt.cuando && <span className="badge context">📅 {prompt.cuando}</span>}
                   </div>
                 </div>
-                <div className={`expand-icon ${expandedPrompts[index] ? 'expanded' : ''}`}>
-                  ▼
+                
+                <div className="prompt-content">
+                  {prompt.contenido}
+                </div>
+
+                <div className="actions">
+                  <button 
+                    id={`copy-btn-${index}`}
+                    className="btn btn-copy" 
+                    onClick={() => handleCopy(prompt.contenido, index)}
+                  >
+                    📋 Copiar Prompt
+                  </button>
+                  
+                  {/* Botones de Ejecución IA */}
+                  <div className="ai-buttons">
+                    <a href="https://chat.openai.com/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                      🟢 ChatGPT
+                    </a>
+                    <a href="https://claude.ai/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                      🟠 Claude
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" rel="noreferrer" className="btn btn-ai">
+                      🔵 Gemini
+                    </a>
+                  </div>
                 </div>
               </div>
-
-              {expandedPrompts[index] && (
-                <div className="prompt-card-content">
-                  <div className="prompt-text">
-                    {prompt.contenido}
-                  </div>
-                  <button
-                    className={`copy-button ${copiedPrompts[index] ? 'copied' : ''}`}
-                    onClick={() => copyPrompt(prompt.contenido, index)}
-                  >
-                    {copiedPrompts[index] ? '✓ Copiado' : '📋 Copiar prompt'}
-                  </button>
-                </div>
-              )}
+            ))
+          ) : (
+            <div className="no-results">
+              <p>No encontramos prompts para tu búsqueda.</p>
             </div>
-          ))}
+          )}
         </div>
+      </div>
 
-        {/* No Results */}
-        {filteredPrompts.length === 0 && (
-          <div className="no-results">
-            <p>No se encontraron prompts que coincidan con tu búsqueda.</p>
-            <button 
-              className="reset-btn"
-              onClick={() => {
-                setSearchTerm('')
-                setSelectedFrequency('all')
-              }}
-            >
-              Limpiar filtros
-            </button>
-          </div>
-        )}
-
-        {/* Tips Section */}
-        <div className="tips-section">
-          <h3>💡 Consejos para usar los prompts</h3>
-          <ul>
-            <li>Usa la información de <strong>"Cuándo usar"</strong> para saber el contexto ideal</li>
-            <li>La <strong>frecuencia</strong> te indica qué tan seguido deberías aplicar el prompt</li>
-            <li>Personaliza el contenido según las necesidades específicas de tu cliente</li>
-            <li>Usa <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> para análisis más profundos</li>
-            <li>Combina múltiples prompts para casos complejos</li>
-          </ul>
+      {/* Footer del Ecosistema */}
+      <footer class="bp-footer">
+        <div class="bp-footer-links">
+            <a href="https://jairoamaya.co" target="_blank">Sitio Web</a> •
+            <a href="https://linkedin.com/in/jairoamaya" target="_blank">LinkedIn</a> •
+            <a href="mailto:hola@jairoamaya.co">Contacto</a>
         </div>
-      </main>
+        <div class="bp-footer-branding">
+            <p><strong>Contador 4.0 Suite</strong></p>
+            <p>Herramienta de productividad diseñada por <a href="https://jairoamaya.co" target="_blank" style="color:#b8c1ec; text-decoration: underline;">Jairo Amaya - Full Stack Marketer</a></p>
+        </div>
+        <div class="bp-footer-copyright">
+            <p>Todos los derechos reservados © 2025.</p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
+
+export default App;
