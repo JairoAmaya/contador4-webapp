@@ -15,22 +15,24 @@
             --border: 1px solid rgba(148, 163, 184, 0.1);
             --accent: #3b82f6;
             --text: #f1f5f9;
+            
             /* Colores de Categorías */
-            --cat-factura: #3b82f6;
-            --cat-declaracion: #10b981;
-            --cat-contabilidad: #f59e0b;
-            --cat-precios: #8b5cf6;
-            --cat-optimizacion: #eab308;
-            --cat-defensa: #ef4444;
+            --cat-factura: #3b82f6;      /* Azul */
+            --cat-declaracion: #10b981;  /* Verde */
+            --cat-contabilidad: #f59e0b; /* Naranja */
+            --cat-precios: #8b5cf6;      /* Violeta */
+            --cat-optimizacion: #eab308; /* Amarillo */
+            --cat-defensa: #ef4444;      /* Rojo */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
             font-family: 'Lato', sans-serif; background: var(--bg-dark); color: var(--text);
-            min-height: 100vh; padding-bottom: 60px;
+            min-height: 100vh; padding-bottom: 60px; display: flex; flex-direction: column;
         }
 
+        /* Botón Volver */
         .back-btn {
             position: fixed; top: 20px; left: 20px; z-index: 999;
             background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
@@ -39,14 +41,44 @@
         }
         .back-btn:hover { background: var(--accent); }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px 20px; flex: 1; width: 100%; }
 
-        .header { text-align: center; margin-bottom: 40px; }
+        .header { text-align: center; margin-bottom: 30px; }
         .header h1 {
             font-family: 'Poppins', sans-serif; font-size: 2.5rem; margin-bottom: 10px;
             background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .header p { color: #94a3b8; font-size: 1.1rem; }
+
+        /* Sección de Consejos */
+        .tips-section {
+            background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px; padding: 20px; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .tips-title { color: #34d399; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .tips-list { list-style: none; padding: 0; margin: 0; }
+        .tips-list li { margin-bottom: 8px; font-size: 0.9rem; color: #d1fae5; display: flex; gap: 8px; }
+        .tips-list li::before { content: "•"; color: #34d399; font-weight: bold; }
+
+        /* Filtros de Categoría */
+        .category-filters {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px;
+        }
+        .cat-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8; padding: 8px 16px; border-radius: 50px; cursor: pointer;
+            transition: all 0.3s; font-size: 0.85rem; font-weight: 600;
+        }
+        .cat-btn:hover { background: rgba(255,255,255,0.1); color: white; }
+        .cat-btn.active { background: white; color: #0f172a; border-color: white; }
+        
+        /* Estilos específicos para botones activos por color */
+        .cat-btn[data-cat="Facturación Electrónica CFDI"].active { background: var(--cat-factura); color: white; border-color: var(--cat-factura); }
+        .cat-btn[data-cat="Declaraciones y Obligaciones"].active { background: var(--cat-declaracion); color: white; border-color: var(--cat-declaracion); }
+        .cat-btn[data-cat="Contabilidad Electrónica"].active { background: var(--cat-contabilidad); color: white; border-color: var(--cat-contabilidad); }
+        .cat-btn[data-cat="Precios de Transferencia"].active { background: var(--cat-precios); color: white; border-color: var(--cat-precios); }
+        .cat-btn[data-cat="Optimización Fiscal"].active { background: var(--cat-optimizacion); color: white; border-color: var(--cat-optimizacion); }
+        .cat-btn[data-cat="Controversias y Defensa"].active { background: var(--cat-defensa); color: white; border-color: var(--cat-defensa); }
 
         .search-box { width: 100%; max-width: 600px; margin: 0 auto 40px; position: relative; }
         .search-box input {
@@ -62,6 +94,7 @@
         .card {
             background: var(--card-bg); border: var(--border); border-radius: 16px; padding: 25px;
             display: flex; flex-direction: column; transition: transform 0.2s; position: relative;
+            border-top: 3px solid transparent; /* Para el color de categoría */
         }
         .card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.2); }
 
@@ -69,7 +102,7 @@
         .card-title { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
         
         .tag { 
-            display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; 
+            display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; 
             font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
         }
 
@@ -108,16 +141,32 @@
         .btn-ai { background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; }
         .btn-ai:hover { background: rgba(255,255,255,0.1); color: white; }
 
-        /* Footer */
-        .footer { text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: #64748b; }
-        .floating-img {
-            position: fixed; bottom: 20px; right: 20px; width: 120px;
-            animation: float 4s ease-in-out infinite; z-index: 50;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        /* Footer Ecosistema */
+        .footer-wrapper { position: relative; width: 100%; margin-top: auto; }
+        .bp-floating-character {
+            position: absolute; bottom: 85%; left: 50%; width: 280px; height: auto;
+            z-index: 0; pointer-events: none; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+            animation: float-center 6s ease-in-out infinite; transform: translateX(-50%);
         }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes float-center {
+            0% { transform: translate(-50%, 0px); }
+            50% { transform: translate(-50%, -20px); }
+            100% { transform: translate(-50%, 0px); }
+        }
+        .bp-footer {
+            text-align: center; padding: 80px 20px 40px; border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(10, 10, 20, 0.85); backdrop-filter: blur(15px);
+            font-size: 0.9em; color: #8da2fb; position: relative; z-index: 5;
+        }
+        .bp-footer a { color: #a8b3ff; text-decoration: none; font-weight: 600; }
+        .bp-footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
 
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .floating-img { width: 80px; bottom: 10px; right: 10px; } }
+        @media (max-width: 768px) { 
+            .grid { grid-template-columns: 1fr; } 
+            .bp-floating-character { width: 180px; bottom: 90%; }
+            .category-filters { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; flex-wrap: nowrap; }
+            .cat-btn { white-space: nowrap; }
+        }
     </style>
 </head>
 <body>
@@ -130,21 +179,55 @@
             <p>Prompts de Alta Ingeniería especializados en Normativa Mexicana</p>
         </header>
 
+        <div class="tips-section">
+            <div class="tips-title">💡 Consejos para usar los prompts SAT</div>
+            <ul class="tips-list">
+                <li>Estos prompts están <strong>especializados para México</strong> con referencias a Anexos SAT, CFDI 4.0 y normativa vigente.</li>
+                <li>Las <strong>variables entre [CORCHETES]</strong> deben reemplazarse con los datos de tu cliente (usa los campos que aparecen en la tarjeta).</li>
+                <li>Usa <strong>Claude.ai o ChatGPT</strong> para ejecutar los prompts.</li>
+                <li>Para casos complejos, combina múltiples prompts (ej: CFDI + Complemento de Pagos).</li>
+                <li>Mantén actualizada tu referencia a <strong>Anexos 20 y 24 del SAT</strong>.</li>
+                <li>Los prompts de <strong>Precios de Transferencia</strong> son únicos de este pack.</li>
+            </ul>
+        </div>
+
+        <div class="category-filters" id="categoryFilters">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">Todas</button>
+            <button class="cat-btn" data-cat="Facturación Electrónica CFDI" onclick="filterCategory('Facturación Electrónica CFDI', this)">Facturación CFDI</button>
+            <button class="cat-btn" data-cat="Declaraciones y Obligaciones" onclick="filterCategory('Declaraciones y Obligaciones', this)">Declaraciones</button>
+            <button class="cat-btn" data-cat="Contabilidad Electrónica" onclick="filterCategory('Contabilidad Electrónica', this)">Contabilidad E.</button>
+            <button class="cat-btn" data-cat="Precios de Transferencia" onclick="filterCategory('Precios de Transferencia', this)">Precios Transf.</button>
+            <button class="cat-btn" data-cat="Optimización Fiscal" onclick="filterCategory('Optimización Fiscal', this)">Optimización</button>
+            <button class="cat-btn" data-cat="Controversias y Defensa" onclick="filterCategory('Controversias y Defensa', this)">Defensa Fiscal</button>
+        </div>
+
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="🔍 Buscar por tema (ej: Carta Porte, RESICO, Deducciones, 69-B)...">
+            <input type="text" id="searchInput" placeholder="🔍 Buscar por palabra clave (ej: Carta Porte, RESICO, Deducciones, 69-B)...">
         </div>
 
         <div id="gridContainer" class="grid"></div>
     </div>
 
-    <img src="https://contador4-0-master.vercel.app/personaje-contador.png" class="floating-img">
-
-    <footer class="footer">
-        <p>Contador 4.0 Suite © 2025 | Diseñado por Jairo Amaya</p>
-    </footer>
+    <div class="footer-wrapper">
+        <img src="https://contador4-0-master.vercel.app/personaje-contador.png" alt="Asistente IA" class="bp-floating-character">
+        <footer class="bp-footer">
+            <div class="bp-footer-links">
+                <a href="https://jairoamaya.co" target="_blank">Sitio Web</a> •
+                <a href="https://linkedin.com/in/jairoamaya" target="_blank">LinkedIn</a> •
+                <a href="mailto:hola@jairoamaya.co">Contacto</a>
+            </div>
+            <div class="bp-footer-branding">
+                <p style="margin: 8px 0; color: #9ca3af;"><strong>Contador 4.0 Suite</strong></p>
+                <p style="margin: 8px 0; color: #9ca3af;">Herramienta de productividad diseñada por <a href="https://jairoamaya.co" target="_blank" style="color:#b8c1ec; text-decoration: underline;">Jairo Amaya - Full Stack Marketer</a></p>
+            </div>
+            <div style="margin-top: 25px; opacity: 0.6; font-size: 0.85em;">
+                <p>Todos los derechos reservados © 2025.</p>
+            </div>
+        </footer>
+    </div>
 
     <script>
-        // --- TUS 40 PROMPTS DEL SAT (Categorías Exactas) ---
+        // --- TUS 40 PROMPTS DEL SAT (Base de Datos) ---
         const prompts = [
             // 1. Facturación Electrónica CFDI
             { cat: "Facturación Electrónica CFDI", title: "Validación de Requisitos CFDI 4.0", content: "Actúa como experto en facturación mexicana. Genera un checklist para validar la emisión de un CFDI 4.0 para un receptor con Régimen Fiscal [Régimen Receptor] y Código Postal [CP Receptor]. Verifica el uso del CFDI y si el nombre debe llevar régimen societario." },
@@ -199,22 +282,35 @@
             { cat: "Controversias y Defensa", title: "Presunción de Ingresos", content: "Prepara argumentos de defensa ante una Presunción de Ingresos por Depósitos Bancarios no declarados. Explica que los depósitos de $[Monto] corresponden a [Préstamos/Donativos] y no a ingresos." }
         ];
 
+        // Estado Global
+        let currentCategory = 'all';
+        let searchTerm = '';
+
         const container = document.getElementById('gridContainer');
         const searchInput = document.getElementById('searchInput');
 
-        // --- RENDERIZADO CON LÓGICA DE INPUTS ---
-        function renderCards(data) {
+        // Función Principal de Renderizado
+        function renderCards() {
             container.innerHTML = '';
-            if(data.length === 0) {
-                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados.</div>';
+            
+            // Filtrar
+            const filtered = prompts.filter(p => {
+                const matchesCat = currentCategory === 'all' || p.cat === currentCategory;
+                const matchesSearch = p.title.toLowerCase().includes(searchTerm) || 
+                                      p.content.toLowerCase().includes(searchTerm);
+                return matchesCat && matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados para tu búsqueda.</div>';
                 return;
             }
 
-            data.forEach((item, index) => {
+            filtered.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Color de etiqueta según categoría
+                // Color por categoría
                 let tagColor = 'var(--accent)';
                 if (item.cat === "Facturación Electrónica CFDI") tagColor = 'var(--cat-factura)';
                 if (item.cat === "Declaraciones y Obligaciones") tagColor = 'var(--cat-declaracion)';
@@ -223,7 +319,9 @@
                 if (item.cat === "Optimización Fiscal") tagColor = 'var(--cat-optimizacion)';
                 if (item.cat === "Controversias y Defensa") tagColor = 'var(--cat-defensa)';
 
-                // Detectar variables [Variable]
+                card.style.borderTop = `3px solid ${tagColor}`;
+
+                // Variables
                 const regex = /\[([^\]]+)\]/g;
                 let inputsHtml = '';
                 let variables = [];
@@ -268,34 +366,132 @@
             });
         }
 
-        // --- FUNCIONES DE LÓGICA ---
+        // Lógica de Filtros
+        window.filterCategory = function(cat, btnElement) {
+            currentCategory = cat;
+            
+            // Actualizar botones UI
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            
+            renderCards();
+        };
+
+        // Lógica del Prompt
         function highlightVariables(text) {
             return text.replace(/\[([^\]]+)\]/g, '<span class="highlight">[$1]</span>');
         }
 
         window.updatePrompt = function(index, variable, value) {
-            const originalText = prompts[index].content;
-            const card = document.getElementById(`preview-${index}`).parentElement;
+            // Nota: Aquí necesitamos acceder al prompt original. Como filtramos, el índice cambia.
+            // Solución: Usamos el texto del DOM como referencia base temporal o buscamos en el array original por título.
+            // Para simplicidad en este monolito, buscaremos el prompt en el array 'filtered' no es seguro.
+            // Mejor enfoque: La función render usa 'index' del array filtrado, pero eso no mapea al array global 'prompts'.
+            // CORRECCIÓN: Pasaremos el texto original en un atributo data hidden.
+            
+            // Pero espera, updatePrompt usa 'index'. Si filtramos, el index 0 es el primero visible, no el primero global.
+            // Necesitamos arreglar esto.
+            // Hack rápido: En renderCards, usaremos el título como ID único para buscar en el array global.
+        };
+        
+        // --- CORRECCIÓN LÓGICA UPDATE (REESCRITURA) ---
+        // Vamos a reescribir renderCards para que el ID sea único basado en el array global.
+        
+        // Versión Final de Lógica
+        function renderCardsRevised() {
+            container.innerHTML = '';
+            
+            prompts.forEach((item, globalIndex) => {
+                // Filtros
+                const matchesCat = currentCategory === 'all' || item.cat === currentCategory;
+                const matchesSearch = item.title.toLowerCase().includes(searchTerm) || 
+                                      item.content.toLowerCase().includes(searchTerm);
+                
+                if (!matchesCat || !matchesSearch) return;
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                let tagColor = 'var(--accent)';
+                if (item.cat === "Facturación Electrónica CFDI") tagColor = 'var(--cat-factura)';
+                if (item.cat === "Declaraciones y Obligaciones") tagColor = 'var(--cat-declaracion)';
+                if (item.cat === "Contabilidad Electrónica") tagColor = 'var(--cat-contabilidad)';
+                if (item.cat === "Precios de Transferencia") tagColor = 'var(--cat-precios)';
+                if (item.cat === "Optimización Fiscal") tagColor = 'var(--cat-optimizacion)';
+                if (item.cat === "Controversias y Defensa") tagColor = 'var(--cat-defensa)';
+
+                card.style.borderTop = `3px solid ${tagColor}`;
+
+                const regex = /\[([^\]]+)\]/g;
+                let inputsHtml = '';
+                let variables = [];
+                let match;
+                while ((match = regex.exec(item.content)) !== null) {
+                    if (!variables.includes(match[1])) {
+                        variables.push(match[1]);
+                        // Usamos globalIndex para identificar el prompt único
+                        inputsHtml += `
+                            <div class="input-group">
+                                <label style="color:${tagColor}">${match[1]}</label>
+                                <input type="text" placeholder="Ingresa dato..." 
+                                    oninput="updatePrompt(${globalIndex}, '${match[1]}', this.value)">
+                            </div>
+                        `;
+                    }
+                }
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${item.title}</div>
+                        <span class="tag" style="color:${tagColor}; border:1px solid ${tagColor}40; background:${tagColor}10">${item.cat}</span>
+                    </div>
+                    ${variables.length > 0 ? `<div class="inputs-area">${inputsHtml}</div>` : ''}
+                    <div class="prompt-preview" id="preview-${globalIndex}">${highlightVariables(item.content)}</div>
+                    <div class="actions">
+                        <button class="btn btn-copy" style="background:${tagColor}" onclick="copyPrompt(${globalIndex}, '${tagColor}')">
+                            📄 Copiar Prompt
+                        </button>
+                        <div class="ai-grid">
+                            <a href="https://chat.openai.com/" target="_blank" class="btn btn-ai">ChatGPT</a>
+                            <a href="https://claude.ai/" target="_blank" class="btn btn-ai">Claude</a>
+                            <a href="https://gemini.google.com/" target="_blank" class="btn btn-ai">Gemini</a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            
+            if(container.innerHTML === '') {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados.</div>';
+            }
+        }
+
+        window.updatePrompt = function(globalIndex, variable, value) {
+            const originalText = prompts[globalIndex].content;
+            const previewDiv = document.getElementById(`preview-${globalIndex}`);
+            
+            // Buscar los inputs dentro de la tarjeta correspondiente
+            // Subimos al padre (card) y buscamos inputs
+            const card = previewDiv.parentElement;
             const inputs = card.querySelectorAll('input');
             
             let newText = originalText;
             inputs.forEach(input => {
-                const varName = input.previousElementSibling.innerText;
+                const label = input.previousElementSibling.innerText;
                 const val = input.value.trim();
                 if (val) {
-                    const safeVar = varName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
+                    const safeVar = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
                     newText = newText.replace(new RegExp(`\\[${safeVar}\\]`, 'g'), val);
                 }
             });
 
-            const previewDiv = document.getElementById(`preview-${index}`);
             previewDiv.innerHTML = highlightVariables(newText);
             previewDiv.dataset.cleanText = newText;
         };
 
-        window.copyPrompt = function(index, color) {
-            const previewDiv = document.getElementById(`preview-${index}`);
-            const textToCopy = previewDiv.dataset.cleanText || prompts[index].content;
+        window.copyPrompt = function(globalIndex, color) {
+            const previewDiv = document.getElementById(`preview-${globalIndex}`);
+            const textToCopy = previewDiv.dataset.cleanText || prompts[globalIndex].content;
             navigator.clipboard.writeText(textToCopy);
             
             const btn = previewDiv.nextElementSibling.querySelector('.btn-copy');
@@ -311,17 +507,12 @@
         };
 
         searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = prompts.filter(p => 
-                p.title.toLowerCase().includes(term) || 
-                p.content.toLowerCase().includes(term) ||
-                p.cat.toLowerCase().includes(term)
-            );
-            renderCards(filtered);
+            searchTerm = e.target.value.toLowerCase();
+            renderCardsRevised();
         });
 
-        // Iniciar
-        renderCards(prompts);
+        // Inicializar
+        renderCardsRevised();
     </script>
 </body>
 </html>
