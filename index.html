@@ -8,23 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- SISTEMA DE DISEÑO PREMIUM --- */
+        /* --- DISEÑO DARK MODE --- */
         :root {
             --bg-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --card-bg: rgba(30, 41, 59, 0.6);
             --card-hover: rgba(30, 41, 59, 0.9);
             --border: 1px solid rgba(148, 163, 184, 0.1);
-            --accent: #3b82f6; /* Azul Tech */
+            --accent: #3b82f6;
             --text: #f1f5f9;
             --text-muted: #94a3b8;
             
             /* Colores Categorías SAT */
-            --cat-factura: #3b82f6;
-            --cat-declaracion: #10b981;
-            --cat-contabilidad: #f59e0b;
-            --cat-precios: #8b5cf6;
-            --cat-optimizacion: #eab308;
-            --cat-defensa: #ef4444;
+            --cat-factura: #3b82f6;      /* Azul */
+            --cat-declaracion: #10b981;  /* Verde */
+            --cat-contabilidad: #f59e0b; /* Naranja */
+            --cat-precios: #8b5cf6;      /* Violeta */
+            --cat-optimizacion: #eab308; /* Amarillo */
+            --cat-defensa: #ef4444;      /* Rojo */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,7 +47,7 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px 40px; flex: 1; width: 100%; }
 
-        /* Header con Bandera */
+        /* Header */
         .header { text-align: center; margin-bottom: 50px; }
         .header h1 {
             font-family: 'Poppins', sans-serif; font-size: 2.8rem; margin-bottom: 10px;
@@ -57,7 +57,7 @@
         .flag { font-size: 2.5rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
         .header p { color: var(--text-muted); font-size: 1.1rem; letter-spacing: 0.5px; }
 
-        /* Sección de Consejos (Diseño Premium) */
+        /* Sección de Consejos */
         .tips-container {
             background: rgba(15, 23, 42, 0.4); border: var(--border); border-radius: 16px;
             padding: 30px; margin-bottom: 50px; max-width: 1000px; margin-left: auto; margin-right: auto;
@@ -67,12 +67,8 @@
             font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px;
             display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;
         }
-        .tips-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
-        }
-        .tip-item {
-            display: flex; gap: 12px; align-items: flex-start;
-        }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .tip-item { display: flex; gap: 12px; align-items: flex-start; }
         .tip-icon {
             background: rgba(59, 130, 246, 0.1); color: var(--accent); width: 32px; height: 32px;
             border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
@@ -81,10 +77,8 @@
         .tip-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
         .tip-text strong { color: #e2e8f0; font-weight: 600; }
 
-        /* Filtros de Categoría */
-        .category-filters {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 40px;
-        }
+        /* Filtros */
+        .category-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 40px; }
         .cat-btn {
             background: transparent; border: 1px solid var(--border-color);
             color: var(--text-muted); padding: 10px 20px; border-radius: 50px; cursor: pointer;
@@ -94,13 +88,12 @@
         .cat-btn:hover { background: rgba(255,255,255,0.05); color: white; transform: translateY(-2px); }
         .cat-btn.active { background: white; color: #0f172a; border-color: white; font-weight: 700; box-shadow: 0 0 15px rgba(255,255,255,0.1); }
         
-        /* Colores Activos */
-        .cat-btn[data-cat="Facturación Electrónica CFDI"].active { background: var(--cat-factura); color: white; border-color: var(--cat-factura); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
-        .cat-btn[data-cat="Declaraciones y Obligaciones"].active { background: var(--cat-declaracion); color: white; border-color: var(--cat-declaracion); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
-        .cat-btn[data-cat="Contabilidad Electrónica"].active { background: var(--cat-contabilidad); color: white; border-color: var(--cat-contabilidad); box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); }
-        .cat-btn[data-cat="Precios de Transferencia"].active { background: var(--cat-precios); color: white; border-color: var(--cat-precios); box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
-        .cat-btn[data-cat="Optimización Fiscal"].active { background: var(--cat-optimizacion); color: white; border-color: var(--cat-optimizacion); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
-        .cat-btn[data-cat="Controversias y Defensa"].active { background: var(--cat-defensa); color: white; border-color: var(--cat-defensa); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+        .cat-btn[data-cat="Facturación Electrónica CFDI"].active { background: var(--cat-factura); color: white; border-color: var(--cat-factura); }
+        .cat-btn[data-cat="Declaraciones y Obligaciones"].active { background: var(--cat-declaracion); color: white; border-color: var(--cat-declaracion); }
+        .cat-btn[data-cat="Contabilidad Electrónica"].active { background: var(--cat-contabilidad); color: white; border-color: var(--cat-contabilidad); }
+        .cat-btn[data-cat="Precios de Transferencia"].active { background: var(--cat-precios); color: white; border-color: var(--cat-precios); }
+        .cat-btn[data-cat="Optimización Fiscal"].active { background: var(--cat-optimizacion); color: white; border-color: var(--cat-optimizacion); }
+        .cat-btn[data-cat="Controversias y Defensa"].active { background: var(--cat-defensa); color: white; border-color: var(--cat-defensa); }
 
         /* Buscador */
         .search-box { width: 100%; max-width: 650px; margin: 0 auto 50px; position: relative; }
@@ -124,24 +117,14 @@
 
         .card-header { margin-bottom: 20px; }
         .card-title { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; color: #fff; line-height: 1.4; }
-        
-        .tag { 
-            display: inline-block; padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; 
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
-        }
+        .tag { display: inline-block; padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
 
-        /* Inputs Dinámicos */
-        .inputs-area {
-            background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;
-            margin-bottom: 20px; border: 1px dashed rgba(255,255,255,0.1);
-        }
+        /* Inputs */
+        .inputs-area { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px dashed rgba(255,255,255,0.1); }
         .input-group { margin-bottom: 12px; }
         .input-group:last-child { margin-bottom: 0; }
         .input-group label { display: block; font-size: 0.8rem; color: #fbbf24; margin-bottom: 6px; font-weight: 700; }
-        .input-group input {
-            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-            color: white; padding: 10px; border-radius: 8px; font-size: 0.95rem; transition: border-color 0.2s;
-        }
+        .input-group input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 10px; border-radius: 8px; font-size: 0.95rem; }
         .input-group input:focus { outline: none; border-color: #fbbf24; background: rgba(255,255,255,0.08); }
 
         .prompt-preview {
@@ -149,38 +132,39 @@
             font-size: 0.9rem; color: #cbd5e1; white-space: pre-wrap; margin-bottom: 25px; line-height: 1.6;
             flex-grow: 1; border: 1px solid rgba(255,255,255,0.05); max-height: 350px; overflow-y: auto;
         }
-
         .highlight { color: #fbbf24; font-weight: bold; background: rgba(251, 191, 36, 0.1); padding: 0 4px; border-radius: 4px; }
 
         .actions { margin-top: auto; display: grid; gap: 12px; }
-        .btn {
-            border: none; border-radius: 10px; padding: 12px; font-weight: 700; cursor: pointer;
-            font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px;
-            text-decoration: none; transition: all 0.2s; font-family: 'Lato', sans-serif;
-        }
+        .btn { border: none; border-radius: 10px; padding: 12px; font-weight: 700; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: all 0.2s; font-family: 'Lato', sans-serif; }
         .btn-copy { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2); }
         .btn-copy:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
-        
         .ai-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
         .btn-ai { background: rgba(255,255,255,0.03); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; }
         .btn-ai:hover { background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.2); }
 
-        /* Footer Ecosistema */
+        /* PAGINACIÓN */
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 50px; }
+        .page-btn {
+            width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); color: #94a3b8; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+        }
+        .page-btn:hover:not(:disabled) { background: white; color: #0f172a; }
+        .page-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+        .page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .nav-btn { width: auto; padding: 0 20px; border-radius: 50px; }
+
+        /* Footer */
         .footer-wrapper { position: relative; width: 100%; margin-top: auto; }
         .bp-floating-character {
             position: absolute; bottom: 85%; left: 50%; width: 220px; height: auto;
             z-index: 0; pointer-events: none; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
             animation: float-center 6s ease-in-out infinite; transform: translateX(-50%);
         }
-        @keyframes float-center {
-            0% { transform: translate(-50%, 0px); }
-            50% { transform: translate(-50%, -20px); }
-            100% { transform: translate(-50%, 0px); }
-        }
+        @keyframes float-center { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -20px); } 100% { transform: translate(-50%, 0px); } }
         .bp-footer {
             text-align: center; padding: 100px 20px 50px; border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(20px);
-            font-size: 0.9em; color: #8da2fb; position: relative; z-index: 5;
+            background: rgba(10, 10, 20, 0.9); backdrop-filter: blur(20px); font-size: 0.9em; color: #8da2fb; position: relative; z-index: 5;
         }
         .bp-footer a { color: #a8b3ff; text-decoration: none; font-weight: 600; transition: color 0.2s; }
         .bp-footer a:hover { color: white; text-decoration: underline; }
@@ -209,35 +193,12 @@
         </header>
 
         <div class="tips-container">
-            <div class="tips-title">
-                <span>💡</span>
-                <span>Consejos para usar los prompts SAT</span>
-            </div>
+            <div class="tips-title"><span>💡</span><span>Consejos para usar los prompts SAT</span></div>
             <div class="tips-grid">
-                <div class="tip-item">
-                    <div class="tip-icon">🇲🇽</div>
-                    <div class="tip-text">Especializados para <strong>México</strong>: Referencias a Anexos SAT, CFDI 4.0 y normativa vigente.</div>
-                </div>
-                <div class="tip-item">
-                    <div class="tip-icon">📝</div>
-                    <div class="tip-text">Rellena las <strong>[VARIABLES]</strong> en los campos de cada tarjeta para personalizar el prompt.</div>
-                </div>
-                <div class="tip-item">
-                    <div class="tip-icon">🤖</div>
-                    <div class="tip-text">Usa <strong>Claude 3</strong> o <strong>ChatGPT-4</strong> para obtener las respuestas más precisas.</div>
-                </div>
-                <div class="tip-item">
-                    <div class="tip-icon">🧩</div>
-                    <div class="tip-text">Para casos complejos, <strong>combina prompts</strong> (ej: CFDI + Complemento de Pagos).</div>
-                </div>
-                <div class="tip-item">
-                    <div class="tip-icon">⚖️</div>
-                    <div class="tip-text">Estos prompts incluyen referencias a <strong>LISR, LIVA, CFF y RMF</strong> actuales.</div>
-                </div>
-                <div class="tip-item">
-                    <div class="tip-icon">💎</div>
-                    <div class="tip-text">Pack exclusivo con prompts avanzados de <strong>Precios de Transferencia</strong> y Defensa.</div>
-                </div>
+                <div class="tip-item"><div class="tip-icon">🇲🇽</div><div class="tip-text">Especializados para <strong>México</strong>: Referencias a Anexos SAT, CFDI 4.0 y normativa vigente.</div></div>
+                <div class="tip-item"><div class="tip-icon">📝</div><div class="tip-text">Rellena las <strong>[VARIABLES]</strong> en los campos de cada tarjeta para personalizar el prompt.</div></div>
+                <div class="tip-item"><div class="tip-icon">🤖</div><div class="tip-text">Usa <strong>Claude 3</strong> o <strong>ChatGPT-4</strong> para obtener las respuestas más precisas.</div></div>
+                <div class="tip-item"><div class="tip-icon">🧩</div><div class="tip-text">Para casos complejos, <strong>combina prompts</strong> (ej: CFDI + Complemento de Pagos).</div></div>
             </div>
         </div>
 
@@ -256,6 +217,8 @@
         </div>
 
         <div id="gridContainer" class="grid"></div>
+        
+        <div id="pagination" class="pagination"></div>
     </div>
 
     <div class="footer-wrapper">
@@ -277,9 +240,8 @@
     </div>
 
     <script>
-        // --- TUS 40 PROMPTS DEL SAT (Base de Datos) ---
+        // --- BASE DE DATOS COMPLETA (40 PROMPTS) ---
         const prompts = [
-            // 1. Facturación Electrónica CFDI
             { cat: "Facturación Electrónica CFDI", title: "Validación de Requisitos CFDI 4.0", content: "Actúa como experto en facturación mexicana. Genera un checklist para validar la emisión de un CFDI 4.0 para un receptor con Régimen Fiscal [Régimen Receptor] y Código Postal [CP Receptor]. Verifica el uso del CFDI y si el nombre debe llevar régimen societario." },
             { cat: "Facturación Electrónica CFDI", title: "Complemento Carta Porte (Autotransporte)", content: "Explica si es obligatorio emitir el Complemento Carta Porte para un traslado de [Tipo de Mercancía] que inicia en [Origen] y termina en [Destino], utilizando un vehículo [Tipo Vehículo]. Cita la regla RMF aplicable para tramos locales." },
             { cat: "Facturación Electrónica CFDI", title: "Cancelación de CFDI (Motivo 01)", content: "Dame el procedimiento paso a paso para cancelar un CFDI con error (Motivo 01 'Comprobante emitido con errores con relación'). Explica el orden exacto: ¿Primero cancelo o primero emito el nuevo? ¿Cómo relaciono el UUID?" },
@@ -287,8 +249,6 @@
             { cat: "Facturación Electrónica CFDI", title: "Factura Global (Público en General)", content: "Describe los requisitos para emitir la Factura Global de ventas al público en general para un contribuyente [Régimen: RESICO/General]. Incluye el uso del RFC genérico, la periodicidad [Diaria/Semanal/Mensual] y el desglose de folios." },
             { cat: "Facturación Electrónica CFDI", title: "Manejo de Anticipos", content: "Explica cómo facturar un anticipo recibido de un cliente por $[Monto] según el Apéndice 6 de la Guía de Llenado del SAT. ¿Se debe emitir un CFDI de egreso posteriormente? Describe el flujo contable y fiscal." },
             { cat: "Facturación Electrónica CFDI", title: "Addendas Comerciales", content: "Explica la diferencia técnica y legal entre un Complemento Fiscal (obligatorio SAT) y una Addenda Comercial solicitada por un cliente como [Nombre Cliente Retail]. Genera un ejemplo de estructura XML básica para una Addenda." },
-
-            // 2. Declaraciones y Obligaciones
             { cat: "Declaraciones y Obligaciones", title: "Cálculo ISR Mensual (RESICO PF)", content: "Calcula el pago provisional de ISR para una Persona Física en RESICO con ingresos cobrados de $[Monto Ingresos] en el mes. Aplica la tabla de tasas progresivas del Artículo 113-E de la LISR y confirma si aplican deducciones." },
             { cat: "Declaraciones y Obligaciones", title: "Pago Provisional ISR (Persona Moral)", content: "Describe el cálculo del Pago Provisional de ISR para una Persona Moral del Título II. Ingresos Nominales: $[Monto]. Coeficiente de Utilidad: [Coeficiente]. Pérdidas fiscales: $[Monto Pérdidas]. Calcula el impuesto a pagar." },
             { cat: "Declaraciones y Obligaciones", title: "Declaración Anual Personas Físicas", content: "Lista las deducciones personales autorizadas para la Declaración Anual de una Persona Física asalariada. Verifica si el gasto por [Gasto Médico/Hipoteca] de $[Monto] es deducible y cuál es el tope global." },
@@ -296,24 +256,18 @@
             { cat: "Declaraciones y Obligaciones", title: "Obligación de DIOT", content: "Aclara si un contribuyente del régimen [Régimen] está obligado a presentar la DIOT (Declaración Informativa de Operaciones con Terceros) si ya utiliza 'Mi Contabilidad'. Cita la regla de facilidad administrativa aplicable." },
             { cat: "Declaraciones y Obligaciones", title: "Declaración Informativa Múltiple (DIM)", content: "Explica en qué casos subsiste la obligación de presentar anexos de la DIM (Declaración Informativa Múltiple) o si ya han sido derogados para el ejercicio [Año], específicamente para sueldos y salarios o partes relacionadas." },
             { cat: "Declaraciones y Obligaciones", title: "Sueldos y Salarios (Nómina)", content: "Calcula las retenciones de ISR e IMSS para un empleado con sueldo bruto mensual de $[Sueldo Bruto]. Utiliza las tablas ISR vigentes y las cuotas obreras del IMSS. Determina el sueldo neto a pagar." },
-
-            // 3. Contabilidad Electrónica
             { cat: "Contabilidad Electrónica", title: "Envío de Balanza de Comprobación", content: "Detalla el calendario de envío de la Contabilidad Electrónica (Balanza de Comprobación) para una Persona Moral. ¿Cuál es la fecha límite para el mes de [Mes]? ¿Qué pasa si es Persona Física?" },
             { cat: "Contabilidad Electrónica", title: "Catálogo de Cuentas (Código Agrupador)", content: "Explica cómo asociar las cuentas contables internas de la empresa con el Código Agrupador del SAT. Genera un ejemplo de mapeo para la cuenta de [Nombre de Cuenta Contable] (ej. Bancos Nacionales)." },
             { cat: "Contabilidad Electrónica", title: "Generación de XML de Pólizas", content: "Describe en qué casos el SAT puede requerir el envío de los XML de las pólizas contables (ej. solicitud de devolución o auditoría). ¿Qué información debe contener cada póliza según el Anexo 24?" },
             { cat: "Contabilidad Electrónica", title: "Almacenamiento de XML", content: "Define los requisitos para el resguardo y almacenamiento de los XML de los CFDI emitidos y recibidos. ¿Es suficiente tenerlos en el portal del SAT o deben integrarse a la contabilidad (Art. 28 CFF)?" },
             { cat: "Contabilidad Electrónica", title: "Multas por No Enviar Contabilidad", content: "Identifica las multas vigentes en el Código Fiscal de la Federación por no enviar la Contabilidad Electrónica o enviarla con errores. ¿Cuál es el monto por cada mes no presentado?" },
             { cat: "Contabilidad Electrónica", title: "Facilidades Administrativas (RESICO)", content: "Confirma si un contribuyente en RESICO (Persona Física o Moral) está relevado de enviar la Contabilidad Electrónica y presentar la DIOT. Fundamenta la respuesta en la Resolución Miscelánea Fiscal." },
-
-            // 4. Precios de Transferencia
             { cat: "Precios de Transferencia", title: "Estudio de Precios de Transferencia", content: "Explica cuándo es obligatorio contar con un Estudio de Precios de Transferencia para una empresa que tuvo operaciones con partes relacionadas por un monto de $[Monto Operaciones]. ¿Aplica si son partes nacionales?" },
             { cat: "Precios de Transferencia", title: "Partes Relacionadas (Definición)", content: "Define qué se considera 'Parte Relacionada' según la Ley del ISR. Analiza si la empresa A es parte relacionada de la empresa B dado que [Descripción de la relación accionaria o administrativa]." },
             { cat: "Precios de Transferencia", title: "Métodos de Valoración", content: "Resume los 6 métodos de precios de transferencia aceptados por la OCDE y la LISR. Recomienda cuál sería el más apropiado para una empresa de [Giro: Manufactura/Servicios] y por qué." },
             { cat: "Precios de Transferencia", title: "Declaración Informativa (DIM Anexo 9)", content: "Detalla la información que debe contener la Declaración Informativa de Operaciones con Partes Relacionadas (Anexo 9 de la DIM). ¿Cuál es la fecha límite de presentación?" },
             { cat: "Precios de Transferencia", title: "Ajustes de Precios de Transferencia", content: "Explica qué es un ajuste de precios de transferencia (real o virtual) y cómo debe reflejarse fiscalmente si, al cierre del ejercicio, las operaciones no estuvieron a valor de mercado." },
             { cat: "Precios de Transferencia", title: "BEPS y Reporte País por País", content: "Explica brevemente qué es el Plan BEPS y si una empresa multinacional con ingresos de $[Ingresos Globales] está obligada a presentar el Reporte País por País (CbC Reporting) en México." },
-
-            // 5. Optimización Fiscal
             { cat: "Optimización Fiscal", title: "Deducción Ciega (Arrendamiento)", content: "Calcula el ISR a pagar por Arrendamiento de un inmueble con renta mensual de $[Renta]. Compara el resultado usando Deducciones Autorizadas (con comprobantes) vs. Deducción Ciega del 35%." },
             { cat: "Optimización Fiscal", title: "Estímulos Fiscales (Frontera Norte)", content: "Evalúa si una empresa con domicilio en [Ciudad Fronteriza] califica para el estímulo fiscal de ISR (tasa del 20%) e IVA (tasa del 8%). Lista los requisitos de antigüedad y cumplimiento." },
             { cat: "Optimización Fiscal", title: "Deducibilidad de Automóviles", content: "Explica los topes de deducibilidad para la adquisición de un automóvil [Combustión/Híbrido/Eléctrico] con valor de $[Valor Auto]. ¿Cuánto es deducible vía depreciación y cuánto de gastos?" },
@@ -321,8 +275,6 @@
             { cat: "Optimización Fiscal", title: "Back-to-Back Loans", content: "Analiza si un préstamo recibido de una parte relacionada en el extranjero por $[Monto Préstamo] podría ser reclasificado como dividendo (Back-to-Back) según el Art. 11 de la LISR." },
             { cat: "Optimización Fiscal", title: "Cuentas Incobrables", content: "Describe el procedimiento y requisitos para deducir una cuenta incobrable de $[Monto Deuda]. ¿Cuándo basta con la notoria imposibilidad práctica de cobro y cuándo se requiere demanda?" },
             { cat: "Optimización Fiscal", title: "Amortización de Pérdidas Fiscales", content: "Explica la estrategia para amortizar pérdidas fiscales de ejercicios anteriores contra la utilidad de este año. ¿Cómo se actualiza el monto de la pérdida con los INPC?" },
-
-            // 6. Controversias y Defensa
             { cat: "Controversias y Defensa", title: "Atención a Carta Invitación", content: "Redacta una respuesta para aclarar una Carta Invitación del SAT por 'Diferencias en Retenciones de ISR'. Explica que la diferencia se debe a [Causa: Error de llenado / Pago extemporáneo]." },
             { cat: "Controversias y Defensa", title: "Materialidad (Artículo 69-B)", content: "Genera una lista de pruebas (entregables) para demostrar la materialidad de un servicio de [Tipo Servicio] y evitar que el SAT presuma inexistencia de operaciones (EFOS/EDOS) según el 69-B del CFF." },
             { cat: "Controversias y Defensa", title: "Restricción de Sellos Digitales", content: "Elabora una solicitud de aclaración para desbloquear los Certificados de Sello Digital (CSD) restringidos temporalmente por [Causa: Declaraciones omitidas / No localizado]. Cita el Art. 17-H Bis." },
@@ -332,18 +284,19 @@
             { cat: "Controversias y Defensa", title: "Presunción de Ingresos", content: "Prepara argumentos de defensa ante una Presunción de Ingresos por Depósitos Bancarios no declarados. Explica que los depósitos de $[Monto] corresponden a [Préstamos/Donativos] y no a ingresos." }
         ];
 
-        // Estado Global
+        // --- ESTADO Y LÓGICA ---
         let currentCategory = 'all';
         let searchTerm = '';
+        let currentPage = 1;
+        const itemsPerPage = 6; // PAGINACIÓN ACTIVADA
 
         const container = document.getElementById('gridContainer');
-        const searchInput = document.getElementById('searchInput');
+        const paginationContainer = document.getElementById('pagination');
 
-        // Función Principal de Renderizado
         function renderCards() {
             container.innerHTML = '';
             
-            // Filtrar
+            // 1. Filtrar
             const filtered = prompts.filter(p => {
                 const matchesCat = currentCategory === 'all' || p.cat === currentCategory;
                 const matchesSearch = p.title.toLowerCase().includes(searchTerm) || 
@@ -351,16 +304,28 @@
                 return matchesCat && matchesSearch;
             });
 
-            if(filtered.length === 0) {
-                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados para tu búsqueda.</div>';
+            // 2. Paginar
+            const totalPages = Math.ceil(filtered.length / itemsPerPage);
+            if (currentPage > totalPages) currentPage = 1; // Reset si filtra
+            
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedItems = filtered.slice(start, end);
+
+            // 3. Renderizar Tarjetas
+            if(paginatedItems.length === 0) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: #64748b;">No se encontraron resultados.</div>';
+                paginationContainer.innerHTML = '';
                 return;
             }
 
-            filtered.forEach((item, index) => {
+            paginatedItems.forEach((item, index) => {
+                // El index aquí es relativo a la página. Necesitamos un ID único.
+                // Usaremos un ID generado al vuelo.
+                const uniqueId = `prompt-${start + index}`;
                 const card = document.createElement('div');
                 card.className = 'card';
                 
-                // Color por categoría
                 let tagColor = 'var(--accent)';
                 if (item.cat === "Facturación Electrónica CFDI") tagColor = 'var(--cat-factura)';
                 if (item.cat === "Declaraciones y Obligaciones") tagColor = 'var(--cat-declaracion)';
@@ -371,7 +336,6 @@
 
                 card.style.borderTop = `4px solid ${tagColor}`;
 
-                // Variables
                 const regex = /\[([^\]]+)\]/g;
                 let inputsHtml = '';
                 let variables = [];
@@ -383,26 +347,21 @@
                             <div class="input-group">
                                 <label style="color:${tagColor}">${match[1]}</label>
                                 <input type="text" placeholder="Ingresa dato..." 
-                                    oninput="updatePrompt(${index}, '${match[1]}', this.value)">
+                                    oninput="updatePrompt('${uniqueId}', '${match[1]}', this.value)">
                             </div>
                         `;
                     }
                 }
-
-                const hasInputs = variables.length > 0;
 
                 card.innerHTML = `
                     <div class="card-header">
                         <div class="card-title">${item.title}</div>
                         <span class="tag" style="color:${tagColor}; border:1px solid ${tagColor}40; background:${tagColor}10">${item.cat}</span>
                     </div>
-
-                    ${hasInputs ? `<div class="inputs-area">${inputsHtml}</div>` : ''}
-
-                    <div class="prompt-preview" id="preview-${index}">${highlightVariables(item.content)}</div>
-
+                    ${variables.length > 0 ? `<div class="inputs-area">${inputsHtml}</div>` : ''}
+                    <div class="prompt-preview" id="preview-${uniqueId}" data-original="${encodeURIComponent(item.content)}">${highlightVariables(item.content)}</div>
                     <div class="actions">
-                        <button class="btn btn-copy" style="background:${tagColor}" onclick="copyPrompt(${index}, '${tagColor}')">
+                        <button class="btn btn-copy" style="background:${tagColor}" onclick="copyPrompt('${uniqueId}', '${tagColor}')">
                             📄 Copiar Prompt
                         </button>
                         <div class="ai-grid">
@@ -414,43 +373,62 @@
                 `;
                 container.appendChild(card);
             });
+
+            renderPagination(totalPages);
         }
 
-        // Lógica de Filtros
-        window.filterCategory = function(cat, btnElement) {
-            currentCategory = cat;
-            
-            // Actualizar botones UI
-            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-            
-            renderCards();
-        };
+        // Renderizar Controles de Paginación
+        function renderPagination(totalPages) {
+            paginationContainer.innerHTML = '';
+            if (totalPages <= 1) return;
 
-        // Lógica del Prompt
+            // Botón Anterior
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn nav-btn';
+            prevBtn.innerText = '← Anterior';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => changePage(currentPage - 1);
+            paginationContainer.appendChild(prevBtn);
+
+            // Números
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                btn.innerText = i;
+                btn.onclick = () => changePage(i);
+                paginationContainer.appendChild(btn);
+            }
+
+            // Botón Siguiente
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn nav-btn';
+            nextBtn.innerText = 'Siguiente →';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => changePage(currentPage + 1);
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterCategory(cat, btn) {
+            currentCategory = cat;
+            currentPage = 1;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards();
+        }
+
         function highlightVariables(text) {
             return text.replace(/\[([^\]]+)\]/g, '<span class="highlight">[$1]</span>');
         }
 
-        window.updatePrompt = function(index, variable, value) {
-            // Nota importante: Como filtramos el array, el 'index' que recibe esta función
-            // es el índice dentro del array FILTRADO, no el global.
-            // Para que funcione correctamente, debemos acceder al objeto correcto.
-            // RE-CALCULO:
-            
-            // 1. Obtenemos el objeto actual del array filtrado
-            const filtered = prompts.filter(p => {
-                const matchesCat = currentCategory === 'all' || p.cat === currentCategory;
-                const matchesSearch = p.title.toLowerCase().includes(searchTerm) || 
-                                      p.content.toLowerCase().includes(searchTerm);
-                return matchesCat && matchesSearch;
-            });
-            
-            const currentItem = filtered[index];
-            const originalText = currentItem.content;
-
-            // 2. Buscamos la tarjeta en el DOM
-            const previewDiv = document.getElementById(`preview-${index}`);
+        window.updatePrompt = function(uniqueId, variable, value) {
+            const previewDiv = document.getElementById(`preview-${uniqueId}`);
+            const originalText = decodeURIComponent(previewDiv.dataset.original);
             const card = previewDiv.parentElement;
             const inputs = card.querySelectorAll('input');
             
@@ -468,21 +446,9 @@
             previewDiv.dataset.cleanText = newText;
         };
 
-        window.copyPrompt = function(index, color) {
-            const previewDiv = document.getElementById(`preview-${index}`);
-            // Si hay un texto limpio (editado), úsalo. Si no, busca en el array filtrado.
-            let textToCopy = previewDiv.dataset.cleanText;
-            
-            if (!textToCopy) {
-                 const filtered = prompts.filter(p => {
-                    const matchesCat = currentCategory === 'all' || p.cat === currentCategory;
-                    const matchesSearch = p.title.toLowerCase().includes(searchTerm) || 
-                                          p.content.toLowerCase().includes(searchTerm);
-                    return matchesCat && matchesSearch;
-                });
-                textToCopy = filtered[index].content;
-            }
-            
+        window.copyPrompt = function(uniqueId, color) {
+            const previewDiv = document.getElementById(`preview-${uniqueId}`);
+            const textToCopy = previewDiv.dataset.cleanText || decodeURIComponent(previewDiv.dataset.original);
             navigator.clipboard.writeText(textToCopy);
             
             const btn = previewDiv.nextElementSibling.querySelector('.btn-copy');
@@ -497,8 +463,9 @@
             }, 2000);
         };
 
-        searchInput.addEventListener('input', (e) => {
+        document.getElementById('searchInput').addEventListener('input', (e) => {
             searchTerm = e.target.value.toLowerCase();
+            currentPage = 1;
             renderCards();
         });
 
